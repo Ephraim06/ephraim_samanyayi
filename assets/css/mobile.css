@@ -88,6 +88,7 @@ p {
         width: 180px !important;
         border-radius: 20px;
         margin: 5px 0;
+        font-family: "Orbitron", serif !important;
     }
     
     .flip-container {
@@ -96,6 +97,7 @@ p {
         align-items: center;
         height: 160px;
         width: 18rem;
+        font-family: "Orbitron", serif !important;
     }
     
     .label {
@@ -119,7 +121,7 @@ p {
         border-radius: 20px;
         overflow: hidden;
         text-align: center;
-        font-family: "Orbitron", serif;
+        font-family: "Orbitron", serif !important;
     }
     
     .flip-card::before,
