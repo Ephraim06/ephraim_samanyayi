@@ -39,13 +39,13 @@ p {
     }
 
     .apple-card {
-        background-color: #585858 !important;
+        background-color: #222831 !important;
         border-radius: 20px !important;
         margin-left: 10px;
     }
-
+/* #F6C377 */
     .bottom-card {
-        background-color: #F6C377 !important;
+        background-color: #FBA518 !important;
         border-radius: 20px !important;
     }
 
@@ -84,7 +84,7 @@ p {
         display: flex;
         flex-direction: column;
         align-items: center;
-        background: #9A86BA;
+        background: #4501b3;
         width: 180px !important;
         border-radius: 20px;
         margin: 5px 0;
