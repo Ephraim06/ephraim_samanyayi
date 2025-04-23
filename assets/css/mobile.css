@@ -37,6 +37,11 @@
     
     .about-stats {
       flex-direction: column;
+      padding: 1rem !important;
+    }
+
+    .about-content {
+        padding: 1rem;
     }
     
     .stat-item {
@@ -71,4 +76,108 @@
       font-size: 1rem;
       bottom: 70px;
     }
+    /* Footer - Stacked Layout */
+  .footer {
+    padding: 60px 0 30px;
   }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 0 20px;
+  }
+  
+  .footer-logo p {
+    max-width: 100%;
+  }
+  
+  .footer-newsletter {
+    margin-top: 20px;
+  }
+  
+  /* Section Headers */
+  .section-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .section-header-line {
+    width: 60px;
+  }
+  
+  /* Buttons */
+  .btn {
+    padding: 10px 20px;
+  }
+}
+
+/* Extra Small Devices (Phones) */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .section-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .project-image {
+    height: 180px;
+  }
+  
+  .stat-item {
+    padding: 85px 85px;
+  }
+  
+  .stat-number {
+    font-size: 2.2rem;
+  }
+  
+  .footer {
+    padding: 50px 0 20px;
+  }
+  
+  .footer-logo span {
+    font-size: 2rem;
+  }
+}
+
+/* Tiny Devices (Small Phones) */
+@media only screen and (max-width: 600px) {
+  .dock-item {
+    width: 38px;
+    height: 38px;
+    margin: 0 3px;
+  }
+  
+  .hero-title {
+    font-size: 1.6rem;
+  }
+  
+  .profile-image-container {
+    width: 130px;
+    height: 130px;
+  }
+  
+  .project-info {
+    padding: 15px;
+  }
+
+  .projects-grid {
+    display: grid  !important;
+    gap: 35px  !important;
+    perspective: 1500px; /* For 3D tilt effect */
+    justify-content: center  !important;
+    padding: 2rem !important;
+  }
+  
+  .tech-tag {
+    padding: 4px 10px;
+    font-size: 0.75rem;
+  }
+}
+
+  

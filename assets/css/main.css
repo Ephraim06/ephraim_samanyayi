@@ -18,6 +18,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
   }
   
   body {
@@ -376,7 +380,6 @@
   
   .about-stats {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     gap: 25px;
     flex: 0 0 350px;
   }
@@ -523,9 +526,9 @@
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 35px;
     perspective: 1500px; /* For 3D tilt effect */
-    justify-content: center !important;
-    align-items: center !important;
-    padding: 5rem !important;
+    justify-content: center ;
+    align-items: center ;
+    padding: 5rem ;
     display: flex;
   }
   
