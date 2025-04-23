@@ -44,10 +44,6 @@
         padding: 1rem;
     }
     
-    .stat-item {
-      width: 100%;
-    }
-    
     .timeline-item,
     .timeline-item:nth-child(even) {
       padding-left: 40px;
@@ -127,11 +123,7 @@
   .project-image {
     height: 180px;
   }
-  
-  .stat-item {
-    padding: 85px 85px;
-  }
-  
+   
   .stat-number {
     font-size: 2.2rem;
   }
@@ -177,6 +169,12 @@
   .tech-tag {
     padding: 4px 10px;
     font-size: 0.75rem;
+  }
+  .stat-item {
+    padding: 85px 85px;
+  }
+  .stat-item {
+    width: 100%;
   }
 }
 
