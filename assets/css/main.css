@@ -336,11 +336,10 @@ img {
 
 .about-text p {
     margin-bottom: 25px;
-    font-size: 1.15rem;
-    line-height: 1.7;
     color: var(--text-color);
     position: relative;
     padding-left: 20px;
+
 }
 
 .about-text p::after {
@@ -355,8 +354,6 @@ img {
 }
 
 .about-meta {
-    margin-top: 40px;
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
