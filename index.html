@@ -39,6 +39,8 @@
     <!-- CSS Stylesheets -->
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/mobile.css" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Bootstrap CDN -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -74,23 +76,26 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
   </head>
-  <body>
+  <body id="home">
     <!-- MacOS-style Dock Navigation -->
     <nav class="dock">
       <div class="dock-container">
-        <a href="#about" class="dock-item" title="About">
+        <a href="#home" class="dock-item">
+          <i class="fas fa-home"></i>
+        </a>
+        <a href="#about" class="dock-item">
           <i class="fas fa-user"></i>
         </a>
-        <a href="#skills" class="dock-item" title="Skills">
+        <a href="#skills" class="dock-item">
           <i class="fas fa-code"></i>
         </a>
-        <a href="#projects" class="dock-item" title="Projects">
+        <a href="#projects" class="dock-item">
           <i class="fas fa-folder"></i>
         </a>
-        <a href="#experience" class="dock-item" title="Experience">
+        <a href="#experience" class="dock-item">
           <i class="fas fa-briefcase"></i>
         </a>
-        <a href="#contact" class="dock-item" title="Contact">
+        <a href="#contact" class="dock-item">
           <i class="fas fa-envelope"></i>
         </a>
       </div>
@@ -110,277 +115,359 @@
         <h1 class="hero-title">Ephraim Samanyayi</h1>
         <p class="hero-subtitle">Full-Stack Web Developer</p>
         <div class="hero-buttons">
-          <a href="#projects" class="btn btn-primary">View My Work</a>
-          <a href="#contact" class="btn btn-secondary">Contact Me</a>
+          <a href="#projects" class="hero-btn">View My Work</a>
+          <a href="#contact" class="hero-btn-2">Contact Me</a>
         </div>
       </div>
       <div class="hero-background"></div>
     </header>
 
     <!-- About Section -->
-    <section id="about" class="section about-section">
-      <div class="section-header">
-        <h2>About Me</h2>
-        <div class="section-header-line"></div>
-      </div>
-      <div class="about-content">
-        <div class="about-text img-fluid">
-          <p>
-            I'm a passionate junior web developer specializing in React and
-            Laravel, with 2+ years of experience building dynamic applications.
-            I've developed survey apps, Kanban boards, and e-commerce platforms
-            that solve real-world problems.
-          </p>
-          <p>
-            Beyond coding, I create comprehensive e-learning materials and
-            training courses to share knowledge with others in the developer
-            community.
-          </p>
-          <div class="about-meta">
-            <div class="meta-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>Location: Cape Town, South Africa</span>
-            </div>
-            <!-- <div class="meta-item">
-              <i class="fas fa-graduation-cap"></i>
-              <span>Education: Bachelors in Computer Science Engineering</span>
-            </div>
-            <div class="meta-item">
-              <i class="fas fa-heart"></i>
-              <span>Interests: Walking, Reading, Coding, etc.</span>
-            </div> -->
-          </div>
+    <section id="about" class="py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Header -->
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-800">About Me</h2>
+          <div
+            style="background-color: #0071e3"
+            class="w-20 h-1 mx-auto mt-3 rounded-full"
+          ></div>
         </div>
-        <div class="about-stats">
-          <div class="stat-item">
-            <div class="stat-number">2+</div>
-            <div class="stat-label">Years Experience</div>
+
+        <!-- Content Grid -->
+        <div class="grid md:grid-cols-2 gap-12 items-start">
+          <!-- Text Content -->
+          <div class="space-y-6">
+            <p class="text-gray-600 text-lg leading-relaxed">
+              I'm a passionate junior web developer specializing in
+              <span class="font-semibold text-gray-800">React</span> and
+              <span class="font-semibold text-gray-800">Laravel</span>, with 2+
+              years of experience building dynamic applications. I've developed
+              survey apps, Kanban boards, and e-commerce platforms that solve
+              real-world problems.
+            </p>
+            <p class="text-gray-600 text-lg leading-relaxed">
+              Beyond coding, I create comprehensive e-learning materials and
+              training courses to share knowledge with others in the developer
+              community.
+            </p>
+
+            <!-- Meta Info -->
+            <div class="space-y-2">
+              <div class="flex items-center text-gray-700">
+                <i
+                  style="color: #0071e3"
+                  class="fas fa-map-marker-alt mr-2"
+                ></i>
+                <span>Location: Cape Town, South Africa</span>
+              </div>
+              <!-- Optional Meta -->
+              <!--
+              <div class="flex items-center text-gray-700">
+                <i class="fas fa-graduation-cap text-blue-600 mr-2"></i>
+                <span>Education: Bachelors in Computer Science Engineering</span>
+              </div>
+              <div class="flex items-center text-gray-700">
+                <i class="fas fa-heart text-blue-600 mr-2"></i>
+                <span>Interests: Walking, Reading, Coding, etc.</span>
+              </div>
+              -->
+            </div>
           </div>
-          <div class="stat-item">
-            <div class="stat-number">10+</div>
-            <div class="stat-label">Projects Completed</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">5+</div>
-            <div class="stat-label">Happy Clients</div>
+
+          <!-- Stats Cards -->
+          <div class="grid grid-cols-2 gap-6 sm:grid-cols-3">
+            <div
+              class="bg-white rounded-xl p-6 text-center shadow hover:shadow-md transition"
+            >
+              <div class="text-3xl font-bold" style="color: #0071e3">2+</div>
+              <div class="text-sm text-gray-700 mt-2">Years Experience</div>
+            </div>
+            <div
+              class="bg-white rounded-xl p-6 text-center shadow hover:shadow-md transition"
+            >
+              <div class="text-3xl font-bold" style="color: #0071e3">10+</div>
+              <div class="text-sm text-gray-700 mt-2">Projects Completed</div>
+            </div>
+            <div
+              class="bg-white rounded-xl p-6 text-center shadow hover:shadow-md transition"
+            >
+              <div class="text-3xl font-bold" style="color: #0071e3">5+</div>
+              <div class="text-sm text-gray-700 mt-2">Happy Clients</div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Skills Section with iOS-style rounded cards -->
-    <section id="skills" class="section skills-section">
-      <div class="section-header">
-        <h2>My Skills</h2>
-        <div class="section-header-line"></div>
+    <section id="skills" class="py-16 px-4 max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-800">My Skills</h2>
+        <div class="w-24 h-1 bg-blue-500 mx-auto mt-2"></div>
       </div>
 
-      <div class="skills-container">
+      <!-- Skill Category -->
+      <div class="space-y-12">
         <!-- Frontend -->
-        <div class="skill-category">
-          <h3>Frontend</h3>
-          <div class="skills-grid">
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fab fa-react"></i></div>
-              <div class="skill-info">
-                <span class="skill-name">React</span>
-                <div class="skill-bar">
-                  <div class="skill-level" style="width: 85%"></div>
-                </div>
+        <div>
+          <h3 class="text-xl font-semibold text-gray-700 mb-6">Frontend</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <!-- Skill Item -->
+            <div class="space-y-2">
+              <div class="flex items-center space-x-2">
+                <i class="fab fa-react text-blue-500 text-xl"></i>
+                <span class="font-medium">React</span>
+              </div>
+              <div class="w-full bg-gray-200 h-2 rounded">
+                <div
+                  class="bg-blue-500 h-full rounded"
+                  style="width: 85%"
+                ></div>
               </div>
             </div>
 
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fab fa-js"></i></div>
-              <div class="skill-info">
-                <span class="skill-name">JavaScript</span>
-                <div class="skill-bar">
-                  <div class="skill-level" style="width: 80%"></div>
-                </div>
+            <div class="space-y-2">
+              <div class="flex items-center space-x-2">
+                <i class="fab fa-js text-yellow-400 text-xl"></i>
+                <span class="font-medium">JavaScript</span>
+              </div>
+              <div class="w-full bg-gray-200 h-2 rounded">
+                <div
+                  class="bg-yellow-400 h-full rounded"
+                  style="width: 80%"
+                ></div>
               </div>
             </div>
 
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-code"></i></div>
-              <div class="skill-info">
-                <span class="skill-name">TypeScript (Learning)</span>
-                <div class="skill-bar">
-                  <div class="skill-level" style="width: 50%"></div>
-                </div>
+            <div class="space-y-2">
+              <div class="flex items-center space-x-2">
+                <i class="fas fa-code text-indigo-500 text-xl"></i>
+                <span class="font-medium">TypeScript (Learning)</span>
+              </div>
+              <div class="w-full bg-gray-200 h-2 rounded">
+                <div
+                  class="bg-indigo-500 h-full rounded"
+                  style="width: 50%"
+                ></div>
               </div>
             </div>
 
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fab fa-html5"></i></div>
-              <div class="skill-info">
-                <span class="skill-name">HTML5</span>
-                <div class="skill-bar">
-                  <div class="skill-level" style="width: 90%"></div>
-                </div>
+            <div class="space-y-2">
+              <div class="flex items-center space-x-2">
+                <i class="fab fa-html5 text-orange-600 text-xl"></i>
+                <span class="font-medium">HTML5</span>
+              </div>
+              <div class="w-full bg-gray-200 h-2 rounded">
+                <div
+                  class="bg-orange-600 h-full rounded"
+                  style="width: 90%"
+                ></div>
               </div>
             </div>
 
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
-              <div class="skill-info">
-                <span class="skill-name">CSS3</span>
-                <div class="skill-bar">
-                  <div class="skill-level" style="width: 85%"></div>
-                </div>
+            <div class="space-y-2">
+              <div class="flex items-center space-x-2">
+                <i class="fab fa-css3-alt text-blue-600 text-xl"></i>
+                <span class="font-medium">CSS3</span>
+              </div>
+              <div class="w-full bg-gray-200 h-2 rounded">
+                <div
+                  class="bg-blue-600 h-full rounded"
+                  style="width: 85%"
+                ></div>
               </div>
             </div>
 
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-wind"></i></div>
-              <div class="skill-info">
-                <span class="skill-name">Tailwind CSS</span>
-                <div class="skill-bar">
-                  <div class="skill-level" style="width: 80%"></div>
-                </div>
+            <div class="space-y-2">
+              <div class="flex items-center space-x-2">
+                <i class="fas fa-wind text-cyan-500 text-xl"></i>
+                <span class="font-medium">Tailwind CSS</span>
+              </div>
+              <div class="w-full bg-gray-200 h-2 rounded">
+                <div
+                  class="bg-cyan-500 h-full rounded"
+                  style="width: 80%"
+                ></div>
               </div>
             </div>
 
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-layer-group"></i></div>
-              <div class="skill-info">
-                <span class="skill-name">Material UI (MUI)</span>
-                <div class="skill-bar">
-                  <div class="skill-level" style="width: 75%"></div>
-                </div>
+            <div class="space-y-2">
+              <div class="flex items-center space-x-2">
+                <i class="fas fa-layer-group text-blue-400 text-xl"></i>
+                <span class="font-medium">Material UI (MUI)</span>
+              </div>
+              <div class="w-full bg-gray-200 h-2 rounded">
+                <div
+                  class="bg-blue-400 h-full rounded"
+                  style="width: 75%"
+                ></div>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Backend -->
-        <div class="skill-category">
-          <h3>Backend</h3>
-          <div class="skills-grid">
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fab fa-laravel"></i></div>
-              <div class="skill-info">
-                <span class="skill-name">Laravel</span>
-                <div class="skill-bar">
-                  <div class="skill-level" style="width: 75%"></div>
-                </div>
+        <div>
+          <h3 class="text-xl font-semibold text-gray-700 mb-6">Backend</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div class="space-y-2">
+              <div class="flex items-center space-x-2">
+                <i class="fab fa-laravel text-red-600 text-xl"></i>
+                <span class="font-medium">Laravel</span>
+              </div>
+              <div class="w-full bg-gray-200 h-2 rounded">
+                <div class="bg-red-600 h-full rounded" style="width: 75%"></div>
               </div>
             </div>
 
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-database"></i></div>
-              <div class="skill-info">
-                <span class="skill-name">MySQL</span>
-                <div class="skill-bar">
-                  <div class="skill-level" style="width: 70%"></div>
-                </div>
+            <div class="space-y-2">
+              <div class="flex items-center space-x-2">
+                <i class="fas fa-database text-green-600 text-xl"></i>
+                <span class="font-medium">MySQL</span>
+              </div>
+              <div class="w-full bg-gray-200 h-2 rounded">
+                <div
+                  class="bg-green-600 h-full rounded"
+                  style="width: 70%"
+                ></div>
               </div>
             </div>
 
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-server"></i></div>
-              <div class="skill-info">
-                <span class="skill-name">API Development</span>
-                <div class="skill-bar">
-                  <div class="skill-level" style="width: 75%"></div>
-                </div>
+            <div class="space-y-2">
+              <div class="flex items-center space-x-2">
+                <i class="fas fa-server text-gray-600 text-xl"></i>
+                <span class="font-medium">API Development</span>
+              </div>
+              <div class="w-full bg-gray-200 h-2 rounded">
+                <div
+                  class="bg-gray-600 h-full rounded"
+                  style="width: 75%"
+                ></div>
               </div>
             </div>
 
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fab fa-php"></i></div>
-              <div class="skill-info">
-                <span class="skill-name">PHP</span>
-                <div class="skill-bar">
-                  <div class="skill-level" style="width: 70%"></div>
-                </div>
+            <div class="space-y-2">
+              <div class="flex items-center space-x-2">
+                <i class="fab fa-php text-indigo-600 text-xl"></i>
+                <span class="font-medium">PHP</span>
+              </div>
+              <div class="w-full bg-gray-200 h-2 rounded">
+                <div
+                  class="bg-indigo-600 h-full rounded"
+                  style="width: 70%"
+                ></div>
               </div>
             </div>
 
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-exchange-alt"></i></div>
-              <div class="skill-info">
-                <span class="skill-name">Inertia.js</span>
-                <div class="skill-bar">
-                  <div class="skill-level" style="width: 65%"></div>
-                </div>
+            <div class="space-y-2">
+              <div class="flex items-center space-x-2">
+                <i class="fas fa-exchange-alt text-blue-500 text-xl"></i>
+                <span class="font-medium">Inertia.js</span>
+              </div>
+              <div class="w-full bg-gray-200 h-2 rounded">
+                <div
+                  class="bg-blue-500 h-full rounded"
+                  style="width: 65%"
+                ></div>
               </div>
             </div>
 
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fab fa-python"></i></div>
-              <div class="skill-info">
-                <span class="skill-name">Python (Beginner)</span>
-                <div class="skill-bar">
-                  <div class="skill-level" style="width: 50%"></div>
-                </div>
+            <div class="space-y-2">
+              <div class="flex items-center space-x-2">
+                <i class="fab fa-python text-yellow-500 text-xl"></i>
+                <span class="font-medium">Python (Beginner)</span>
+              </div>
+              <div class="w-full bg-gray-200 h-2 rounded">
+                <div
+                  class="bg-yellow-500 h-full rounded"
+                  style="width: 50%"
+                ></div>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Tools & Other -->
-        <div class="skill-category">
-          <h3>Tools & Other</h3>
-          <div class="skills-grid">
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
-              <div class="skill-info">
-                <span class="skill-name">Git</span>
-                <div class="skill-bar">
-                  <div class="skill-level" style="width: 80%"></div>
-                </div>
+        <div>
+          <h3 class="text-xl font-semibold text-gray-700 mb-6">
+            Tools & Other
+          </h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div class="space-y-2">
+              <div class="flex items-center space-x-2">
+                <i class="fab fa-git-alt text-red-500 text-xl"></i>
+                <span class="font-medium">Git</span>
+              </div>
+              <div class="w-full bg-gray-200 h-2 rounded">
+                <div class="bg-red-500 h-full rounded" style="width: 80%"></div>
               </div>
             </div>
 
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fab fa-bootstrap"></i></div>
-              <div class="skill-info">
-                <span class="skill-name">Bootstrap</span>
-                <div class="skill-bar">
-                  <div class="skill-level" style="width: 85%"></div>
-                </div>
+            <div class="space-y-2">
+              <div class="flex items-center space-x-2">
+                <i class="fab fa-bootstrap text-purple-600 text-xl"></i>
+                <span class="font-medium">Bootstrap</span>
+              </div>
+              <div class="w-full bg-gray-200 h-2 rounded">
+                <div
+                  class="bg-purple-600 h-full rounded"
+                  style="width: 85%"
+                ></div>
               </div>
             </div>
 
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-pencil-ruler"></i></div>
-              <div class="skill-info">
-                <span class="skill-name">UI/UX Design</span>
-                <div class="skill-bar">
-                  <div class="skill-level" style="width: 65%"></div>
-                </div>
+            <div class="space-y-2">
+              <div class="flex items-center space-x-2">
+                <i class="fas fa-pencil-ruler text-pink-600 text-xl"></i>
+                <span class="font-medium">UI/UX Design</span>
+              </div>
+              <div class="w-full bg-gray-200 h-2 rounded">
+                <div
+                  class="bg-pink-600 h-full rounded"
+                  style="width: 65%"
+                ></div>
               </div>
             </div>
 
-            <div class="skill-item">
-              <div class="skill-icon">
-                <i class="fas fa-chalkboard-teacher"></i>
+            <div class="space-y-2">
+              <div class="flex items-center space-x-2">
+                <i
+                  class="fas fa-chalkboard-teacher text-orange-500 text-xl"
+                ></i>
+                <span class="font-medium">Technical Training</span>
               </div>
-              <div class="skill-info">
-                <span class="skill-name">Technical Training</span>
-                <div class="skill-bar">
-                  <div class="skill-level" style="width: 75%"></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-plug"></i></div>
-              <div class="skill-info">
-                <span class="skill-name">XAMPP</span>
-                <div class="skill-bar">
-                  <div class="skill-level" style="width: 70%"></div>
-                </div>
+              <div class="w-full bg-gray-200 h-2 rounded">
+                <div
+                  class="bg-orange-500 h-full rounded"
+                  style="width: 75%"
+                ></div>
               </div>
             </div>
 
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-vial"></i></div>
-              <div class="skill-info">
-                <span class="skill-name">Postman</span>
-                <div class="skill-bar">
-                  <div class="skill-level" style="width: 65%"></div>
-                </div>
+            <div class="space-y-2">
+              <div class="flex items-center space-x-2">
+                <i class="fas fa-plug text-gray-500 text-xl"></i>
+                <span class="font-medium">XAMPP</span>
+              </div>
+              <div class="w-full bg-gray-200 h-2 rounded">
+                <div
+                  class="bg-gray-500 h-full rounded"
+                  style="width: 70%"
+                ></div>
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <div class="flex items-center space-x-2">
+                <i class="fas fa-vial text-fuchsia-600 text-xl"></i>
+                <span class="font-medium">Postman</span>
+              </div>
+              <div class="w-full bg-gray-200 h-2 rounded">
+                <div
+                  class="bg-fuchsia-600 h-full rounded"
+                  style="width: 65%"
+                ></div>
               </div>
             </div>
           </div>
@@ -390,15 +477,19 @@
 
     <!-- Projects Section with MacOS-style cards -->
     <section id="projects" class="section projects-section">
-      <div class="section-header">
-        <h2>Featured Projects</h2>
-        <div class="section-header-line"></div>
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-800 mb-4">
+          Featured Projects
+        </h2>
+        <div
+          class="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-300 mx-auto rounded-full"
+        ></div>
       </div>
       <div class="projects-grid">
         <!-- Project 1: Survey App -->
         <div class="project-card">
           <div class="project-image">
-            <img src="assets/img/projects/survey-app.jpg" alt="SmartSurvey" />
+            <img src="assets/img/projects/4.jpg" alt="SmartSurvey" />
             <div class="project-overlay">
               <a href="#" class="project-link">View Details</a>
             </div>
@@ -421,10 +512,7 @@
         <!-- Project 2: Event Management System -->
         <div class="project-card">
           <div class="project-image">
-            <img
-              src="assets/img/projects/event-management.jpg"
-              alt="EventPilot"
-            />
+            <img src="assets/img/projects/2.jpg" alt="EventPilot" />
             <div class="project-overlay">
               <a href="#" class="project-link">View Details</a>
             </div>
@@ -447,10 +535,7 @@
         <!-- Project 3: Property Listing System -->
         <div class="project-card">
           <div class="project-image">
-            <img
-              src="assets/img/projects/property-platform.jpg"
-              alt="HomeList"
-            />
+            <img src="assets/img/projects/3.jpg" alt="HomeList" />
             <div class="project-overlay">
               <a href="#" class="project-link">View Details</a>
             </div>
@@ -473,7 +558,7 @@
         <!-- Project 4: Kanban Task Manager -->
         <div class="project-card">
           <div class="project-image">
-            <img src="assets/img/projects/kanban.jpg" alt="TaskFlow" />
+            <img src="assets/img/projects/1.jpg" alt="TaskFlow" />
             <div class="project-overlay">
               <a href="#" class="project-link">View Details</a>
             </div>
@@ -500,12 +585,67 @@
 
     <!-- Experience Section with iOS-style timeline -->
     <section id="experience" class="section experience-section">
-      <div class="section-header">
-        <h2>Experience & Education</h2>
-        <div class="section-header-line"></div>
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-800 mb-4">
+          Experience & Education
+
+        </h2>
+        <div
+          class="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-300 mx-auto rounded-full"
+        ></div>
       </div>
       <div class="timeline p-2">
         <!-- Experience 1 -->
+        <div class="timeline-item">
+          <div class="timeline-date">Jul 2015 – Feb 2016</div>
+          <div class="timeline-content mt-4">
+            <h3 class="timeline-title">Administrative Assistant / PA</h3>
+            <h4 class="timeline-subtitle">Lew Geffen Sotheby’s, Cape Town</h4>
+            <p class="timeline-description">
+              Provided daily admin and scheduling support for a high-performing
+              real estate agent, including document management and listing
+              coordination.
+            </p>
+            <ul class="timeline-bullets">
+              <li>
+                Organized agent calendars, appointments, and property viewings
+              </li>
+              <li>Managed listing documentation and client communication</li>
+              <li>Assisted in day-to-day real estate operations</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Experience 2 -->
+        <div class="timeline-item">
+          <div class="timeline-date">Apr 2016 – Feb 2019</div>
+          <div class="timeline-content mt-4">
+            <h3 class="timeline-title">
+              Software Training Administrator / IT Support
+            </h3>
+            <h4 class="timeline-subtitle">
+              RE/MAX Property Associates, Cape Town
+            </h4>
+            <p class="timeline-description">
+              Delivered front-line tech support and training to estate agents,
+              supporting internal software tools and managing IT helpdesk
+              responsibilities.
+            </p>
+            <ul class="timeline-bullets">
+              <li>
+                Led onboarding training for agents using CRM and listing tools
+              </li>
+              <li>
+                Managed incoming support queries via Freshdesk and resolved
+                common issues
+              </li>
+              <li>
+                Handled software troubleshooting, basic admin support, and user
+                requests
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- Experience 3 -->
         <div class="timeline-item">
           <div class="timeline-date">Feb 2019 – Present</div>
           <div class="timeline-content mt-4">
@@ -558,61 +698,8 @@
             </ul>
           </div>
         </div>
-
-        <!-- Experience 2 -->
-        <div class="timeline-item">
-          <div class="timeline-date">Apr 2016 – Feb 2019</div>
-          <div class="timeline-content mt-4">
-            <h3 class="timeline-title">
-              Software Training Administrator / IT Support
-            </h3>
-            <h4 class="timeline-subtitle">
-              RE/MAX Property Associates, Cape Town
-            </h4>
-            <p class="timeline-description">
-              Delivered front-line tech support and training to estate agents,
-              supporting internal software tools and managing IT helpdesk
-              responsibilities.
-            </p>
-            <ul class="timeline-bullets">
-              <li>
-                Led onboarding training for agents using CRM and listing tools
-              </li>
-              <li>
-                Managed incoming support queries via Freshdesk and resolved
-                common issues
-              </li>
-              <li>
-                Handled software troubleshooting, basic admin support, and user
-                requests
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Experience 3 -->
-        <div class="timeline-item">
-          <div class="timeline-date">Jul 2015 – Feb 2016</div>
-          <div class="timeline-content mt-4">
-            <h3 class="timeline-title">Administrative Assistant / PA</h3>
-            <h4 class="timeline-subtitle">Lew Geffen Sotheby’s, Cape Town</h4>
-            <p class="timeline-description">
-              Provided daily admin and scheduling support for a high-performing
-              real estate agent, including document management and listing
-              coordination.
-            </p>
-            <ul class="timeline-bullets">
-              <li>
-                Organized agent calendars, appointments, and property viewings
-              </li>
-              <li>Managed listing documentation and client communication</li>
-              <li>Assisted in day-to-day real estate operations</li>
-            </ul>
-          </div>
-        </div>
-
         <!-- Developer Experience -->
-        <div class="timeline-item">
+        <!-- <div class="timeline-item">
           <div class="timeline-date">2022 – Present</div>
           <div class="timeline-content mt-4">
             <h3 class="timeline-title">
@@ -649,7 +736,7 @@
               </li>
             </ul>
           </div>
-        </div>
+        </div> -->
 
         <!-- Education -->
         <!-- Education -->
@@ -693,26 +780,6 @@
                 – Udemy (Apr 2025)
               </li>
               <li>
-                Completed:
-                <strong>
-                  <a
-                    href="https://www.udemy.com/certificate/UC-9eafdb74-5cc5-43fc-b7f3-69982301d03d"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    PHP – Udemy
-                  </a>
-                </strong>
-                – Issued Apr 2025
-              </li>
-              <li>
-                Completed:
-                <strong>Programming in HTML5 with JavaScript and CSS3</strong> –
-                Udemy
-                <br />
-                (No public credential link available)
-              </li>
-              <li>
                 Skills: JavaScript, React.js, Node.js, Laravel, PHP, MySQL,
                 Inertia.js, Tailwind CSS, Bootstrap, HTML5, CSS3
               </li>
@@ -726,149 +793,487 @@
       </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="section testimonials-section">
-      <div class="section-header">
-        <h2>What People Say</h2>
-        <div class="section-header-line"></div>
-      </div>
-      <div class="testimonials-container">
-        <div class="testimonial-card">
-          <div class="testimonial-content">
-            <div class="quote-icon">
-              <i class="fas fa-quote-left"></i>
-            </div>
-            <p class="testimonial-text">
-              Ephraim delivered an excellent React application that exceeded our
-              expectations. His attention to detail and problem-solving skills
-              were impressive.
-            </p>
-          </div>
-          <div class="testimonial-author">
-            <div class="author-image">
-              <img
-                src="https://images.pexels.com/photos/8638025/pexels-photo-8638025.jpeg"
-                alt="Client Name"
-                onerror="this.src='assets/img/people/default-avatar.jpg'"
-              />
-            </div>
-            <div class="author-info">
-              <h4 class="author-name">[Client Name]</h4>
-              <p class="author-title">[Client Position]</p>
-            </div>
+    <!-- Cutting-Edge Placeholder Section -->
+    <section
+      id="endorsements"
+      class="py-20 bg-gradient-to-br from-blue-50 to-white"
+    >
+      <div class="mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-800 mb-4">
+            Let's work together
+          </h2>
+          <div
+            class="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-300 mx-auto rounded-full"
+          ></div>
+          <p class="mt-6 text-lg text-gray-600 max-w-2xl mx-auto">
+            Available For Hire 🚀 Crafting Digital Experiences 🎨
+          </p>
+        </div>
+
+        <!-- Interactive Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-10">
+          <!-- Card 1 - 3D Tilt Effect -->
+          <div
+            class="endorsement-card group"
+            data-tilt
+            data-tilt-max="8"
+            data-tilt-speed="400"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-blue-100 to-white rounded-xl shadow-lg transform group-hover:-translate-y-2 transition-all duration-300"
+            ></div>
+            <!-- <div class="relative z-10 p-8 h-full flex flex-col">
+              <div class="flex items-center mb-6">
+                <div class="relative">
+                  <div
+                    class="absolute inset-0 bg-blue-500 rounded-full opacity-10 blur-md"
+                  ></div>
+                  <img
+                    src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100&q=80"
+                    alt="Colleague"
+                    class="w-14 h-14 rounded-full border-2 border-white shadow-md object-cover"
+                    onerror="this.src='assets/img/people/default-avatar.jpg'"
+                  />
+                </div>
+                <div class="ml-4">
+                  <h4 class="font-bold text-gray-800">Sarah Johnson</h4>
+                  <p class="text-sm text-blue-600">Senior Developer @ RE/MAX</p>
+                </div>
+              </div>
+              <div class="flex-1">
+                <div class="text-blue-500 text-3xl mb-2 opacity-20">“</div>
+                <p class="text-gray-700 mb-6 italic">
+                  Ephraim's ability to bridge technical and non-technical
+                  perspectives makes him invaluable. He transformed our internal
+                  tools with intuitive interfaces that reduced training time by
+                  40%.
+                </p>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex space-x-1 text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <span class="text-xs text-gray-500"
+                  >Collaborated for 2+ years</span
+                >
+              </div>
+            </div> -->
           </div>
         </div>
 
-        <div class="testimonial-card">
-          <div class="testimonial-content">
-            <div class="quote-icon">
-              <i class="fas fa-quote-left"></i>
-            </div>
-            <p class="testimonial-text">
-              Working with Ephraim on our Laravel backend was a pleasure. He
-              quickly understood our requirements and implemented a robust
-              solution.
-            </p>
-          </div>
-          <div class="testimonial-author">
-            <div class="author-image">
-              <img
-                src="https://images.pexels.com/photos/3722132/pexels-photo-3722132.jpeg"
-                alt="Client Name"
-                onerror="this.src='assets/img/people/default-avatar.jpg'"
+        <!-- Animated CTA -->
+        <div class="mt-1 text-center">
+          <a
+            href="#contact"
+            class="inline-flex items-center px-8 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 transform"
+          >
+            <span>Lets Talk</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 ml-2 animate-bounce-x"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                clip-rule="evenodd"
               />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tilt.js for 3D effect -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
+    <script>
+      // Initialize tilt.js
+      $('.endorsement-card[data-tilt]').tilt({
+        glare: true,
+        maxGlare: 0.1,
+        scale: 1.02,
+      });
+
+      // Add animated gradient to cards on hover
+      document.querySelectorAll('.endorsement-card').forEach((card) => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          card.style.setProperty('--mouse-x', `${x}px`);
+          card.style.setProperty('--mouse-y', `${y}px`);
+        });
+      });
+    </script>
+
+    <style>
+      /* Custom animations */
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .endorsement-card {
+        position: relative;
+        transition: all 0.3s ease;
+        transform-style: preserve-3d;
+      }
+
+      .endorsement-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .animate-bounce-x {
+        animation: bounce-x 1s infinite;
+      }
+
+      @keyframes bounce-x {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        50% {
+          transform: translateX(5px);
+        }
+      }
+    </style>
+
+    <!-- Cutting-Edge Contact Section -->
+    <section id="contact" class="relative py-20 overflow-hidden">
+      <!-- Floating tech elements -->
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div
+          class="absolute top-1/4 left-1/4 w-10 h-10 rounded-full bg-blue-500 opacity-20 animate-float"
+        ></div>
+        <div
+          class="absolute top-1/3 right-1/4 w-12 h-12 rounded-full bg-blue-400 opacity-25 animate-float-delay"
+        ></div>
+        <div
+          class="absolute bottom-1/4 left-1/3 w-10 h-10 rounded-full bg-blue-300 opacity-15 animate-float"
+        ></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <!-- Section Header -->
+        <div class="mx-auto px-4 sm:px-6 lg:px-8">
+          <!-- Section Header -->
+          <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">
+              Connect with Me
+            </h2>
+            <div
+              class="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-300 mx-auto rounded-full"
+            ></div>
+            <p class="mt-6 text-lg text-gray-600 max-w-2xl mx-auto">
+              Have a project in mind or want to discuss opportunities? Let's talk!            </p>
+          </div>
+            
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <!-- Contact Info Card -->
+          <div
+            class="contact-info-card bg-white rounded-2xl shadow-xl overflow-hidden transform transition-all hover:shadow-2xl hover:-translate-y-1"
+          >
+            <div class="p-8">
+              <h3 class="text-2xl font-bold text-gray-800 mb-6">
+                Contact Information
+              </h3>
+
+              <div class="space-y-6">
+                <!-- Email -->
+                <div class="flex items-start">
+                  <div
+                    class="flex-shrink-0 bg-blue-100 p-3 rounded-lg text-blue-600"
+                  >
+                    <i class="fas fa-envelope text-xl"></i>
+                  </div>
+                  <div class="ml-4">
+                    <h4 class="text-sm font-semibold text-gray-500">Email</h4>
+                    <a
+                      href="mailto:esamanyayi95@gmail.com"
+                      class="text-lg text-gray-800 hover:text-blue-600 transition-colors"
+                      >esamanyayi95@gmail.com</a
+                    >
+                  </div>
+                </div>
+
+                <!-- Phone -->
+                <div class="flex items-start">
+                  <div
+                    class="flex-shrink-0 bg-indigo-100 p-3 rounded-lg text-indigo-600"
+                  >
+                    <i class="fas fa-phone text-xl"></i>
+                  </div>
+                  <div class="ml-4">
+                    <h4 class="text-sm font-semibold text-gray-500">Phone</h4>
+                    <a
+                      href="tel:+27618514214"
+                      class="text-lg text-gray-800 hover:text-indigo-600 transition-colors"
+                      >061 851 4214</a
+                    >
+                  </div>
+                </div>
+
+                <!-- Location -->
+                <div class="flex items-start">
+                  <div
+                    class="flex-shrink-0 bg-purple-100 p-3 rounded-lg text-purple-600"
+                  >
+                    <i class="fas fa-map-marker-alt text-xl"></i>
+                  </div>
+                  <div class="ml-4">
+                    <h4 class="text-sm font-semibold text-gray-500">
+                      Location
+                    </h4>
+                    <p class="text-lg text-gray-800">Cape Town, South Africa</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Social Links -->
+              <div class="mt-10">
+                <h4 class="text-sm font-semibold text-gray-500 mb-4">
+                  Follow Me
+                </h4>
+                <div class="flex space-x-4">
+                  <a
+                    href="https://github.com/Ephraim06"
+                    class="social-icon bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-600"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/ephraim-s-281742148/"
+                    class="social-icon bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-600"
+                  >
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                  <!-- <a
+                    href="#"
+                    class="social-icon bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-600"
+                  >
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="social-icon bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-600"
+                  >
+                    <i class="fab fa-codepen"></i>
+                  </a> -->
+                </div>
+              </div>
+
+              <!-- Download CV Button -->
+              <div class="mt-10">
+                <a
+                  href="/path-to-your-cv.pdf"
+                  download
+                  class="download-btn inline-flex items-center px-6 py-3 border border-transparent text-base font-medium shadow-sm text-white bg-blue-500 hover:from-blue-500 transition-all transform hover:scale-105"
+                >
+                  <i class="fas fa-download mr-2"></i> CV/Resume
+                </a>
+              </div>
             </div>
-            <div class="author-info">
-              <h4 class="author-name">[Client Name]</h4>
-              <p class="author-title">[Client Position]</p>
+          </div>
+
+          <!-- Modern Form -->
+          <div
+            class="contact-form-card bg-white rounded-2xl shadow-xl overflow-hidden transform transition-all hover:shadow-2xl hover:-translate-y-1"
+          >
+            <div class="p-8">
+              <h3 class="text-2xl font-bold text-gray-800 mb-6">
+                Send Me a Message
+              </h3>
+              <form
+                action="https://formspree.io/f/mnndqrbr"
+                method="POST"
+                enctype="text/html"
+                class="space-y-6"
+              >
+                <!-- Name Field -->
+                <div class="form-group">
+                  <label
+                    for="name"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Name</label
+                  >
+                  <div class="relative">
+                    <div
+                      class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400"
+                    ></div>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      class="form-input pl-10 w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500 transition-all"
+                      placeholder="Your name"
+                    />
+                  </div>
+                </div>
+
+                <!-- Email Field -->
+                <div class="form-group">
+                  <label
+                    for="email"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Email</label
+                  >
+                  <div class="relative">
+                    <div
+                      class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400"
+                    ></div>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      class="form-input pl-10 w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500 transition-all"
+                      placeholder="your.email@example.com"
+                    />
+                  </div>
+                </div>
+
+                <!-- Subject Field -->
+                <div class="form-group">
+                  <label
+                    for="subject"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Subject</label
+                  >
+                  <div class="relative">
+                    <div
+                      class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400"
+                    ></div>
+                    <input
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      required
+                      class="form-input pl-10 w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500 transition-all"
+                      placeholder="What's this about?"
+                    />
+                  </div>
+                </div>
+
+                <!-- Message Field -->
+                <div class="form-group">
+                  <label
+                    for="message"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Message</label
+                  >
+                  <div class="relative">
+                    <div class="absolute top-3 left-3 text-gray-400"></div>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows="5"
+                      required
+                      class="form-textarea pl-10 w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500 transition-all"
+                      placeholder="Your message here..."
+                    ></textarea>
+                  </div>
+                </div>
+
+                <!-- File Upload field -->
+                <!-- <div class="form-group">
+                  <label
+                    for="subject"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Upload File(Optional)</label
+                  >
+                  <div class="relative">
+                    <div
+                      class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400"
+                    ></div>
+                    <input
+                      type="file"
+                      id="myfile"
+                      name="upload"
+                      class="form-input pl-10 w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500 transition-all"
+                    />
+                  </div>
+                </div> -->
+
+                <!-- Submit Button -->
+                <div class="pt-2">
+                  <button
+                    type="submit"
+                    class="submit-btn w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-half text-white bg-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                  >
+                    <i class="fas fa-paper-plane mr-2"></i> Send Message
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact Section with MacOS-style form -->
-    <section id="contact" class="section contact-section">
-      <div class="section-header">
-        <h2>Get In Touch</h2>
-        <div class="section-header-line"></div>
-      </div>
-      <div class="contact-container">
-        <div class="contact-info">
-          <h3 class="contact-subtitle">Contact Information</h3>
-          <div class="contact-method">
-            <i class="fas fa-envelope"></i>
-            <a href="mailto:your.email@example.com">esamanyayi95@gmail.com</a>
-          </div>
-          <div class="contact-method">
-            <i class="fas fa-phone"></i>
-            <a href="tel:0618514214">061 851 4214</a>
-          </div>
-          <div class="contact-method">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>Cape Town, Western Cape, South Africa</span>
-          </div>
-          <div class="contact-social">
-            <a href="https://github.com/Ephraim06" class="social-link"
-              ><i class="fab fa-github"></i
-            ></a>
-            <a
-              href="https://www.linkedin.com/in/ephraim-s-281742148/"
-              class="social-link"
-              ><i class="fab fa-linkedin"></i
-            ></a>
-            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-codepen"></i></a>
-          </div>
-        </div>
-        <form action="mailto:esamanyayi95@gmail.com" class="contact-form">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Enter your name"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Enter your email"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="subject">Subject</label>
-            <input
-              type="text"
-              id="subject"
-              name="subject"
-              placeholder="Enter subject"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              placeholder="Enter your message"
-              rows="5"
-              required
-            ></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">
-            <i class="fas fa-paper-plane"></i> Send Message
-          </button>
-        </form>
-      </div>
-    </section>
+    <style>
+      /* Animations */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      .animate-float {
+        animation: float 6s ease-in-out infinite;
+      }
+      .animate-float-delay {
+        animation: float 7s ease-in-out infinite 1s;
+      }
 
+      /* Custom styles */
+      .contact-info-card,
+      .contact-form-card {
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .social-icon {
+        @apply w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300;
+      }
+
+      .form-input,
+      .form-textarea {
+        @apply block w-full shadow-sm sm:text-sm border-gray-300 rounded-md transition-all duration-200;
+      }
+
+      .form-input:focus,
+      .form-textarea:focus {
+        @apply ring-2 ring-blue-400 border-blue-500;
+      }
+
+      .download-btn,
+      .submit-btn {
+        box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3),
+          0 2px 4px -1px rgba(59, 130, 246, 0.2);
+      }
+
+      .download-btn:hover,
+      .submit-btn:hover {
+        box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.4),
+          0 4px 6px -2px rgba(59, 130, 246, 0.2);
+      }
+    </style>
     <!-- OUT OF THIS WORLD FOOTER -->
     <footer class="footer">
       <!-- Particle background (optional, requires JS) -->
@@ -894,12 +1299,9 @@
             >
               <i class="fab fa-linkedin-in"></i>
             </a>
-            <a href="#" class="social-link" aria-label="Twitter">
+            <!-- <a href="#" class="social-link" aria-label="Twitter">
               <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" class="social-link" aria-label="CodePen">
-              <i class="fab fa-codepen"></i>
-            </a>
+            </a> -->
           </div>
         </div>
 
@@ -916,15 +1318,14 @@
         <!-- Connect Links -->
         <div class="link-group">
           <h4>Connect</h4>
-          <a href="mailto:hello@example.com">Email</a>
-          <a href="tel:+1234567890">Phone</a>
+          <a href="mailto:esamanyayi95@gmail.com">Email</a>
+          <a href="tel:+27618514214">Phone</a>
           <a href="https://github.com/Ephraim06" target="_blank">GitHub</a>
           <a
             href="https://www.linkedin.com/in/ephraim-s-281742148/"
             target="_blank"
             >LinkedIn</a
           >
-          <a href="#" target="_blank">Twitter</a>
         </div>
 
         <!-- Newsletter Section -->
@@ -933,10 +1334,15 @@
           <p>
             Subscribe to my newsletter for the latest projects and insights.
           </p>
-          <form class="newsletter-form">
+          <form 
+          action="https://formspree.io/f/mnndqrbr"
+          method="POST"
+          class="newsletter-form"
+          data-formspree>
             <input
               type="email"
               class="newsletter-input"
+              name="email"
               placeholder="Your email"
               required
             />

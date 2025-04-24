@@ -1,5 +1,8 @@
 /* Mobile-specific styles */
 @media (max-width: 576px) {
+    a {
+        text-decoration: none !important;
+    }
     .section {
       padding: 50px 0;
     }
