@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Demo | Your Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: '#0071e3',
+            },
+            animation: {
+              float: 'float 6s ease-in-out infinite',
+              'fade-in': 'fadeIn 0.5s ease-in',
+              'gradient-x': 'gradientX 8s ease infinite',
+              'text-gradient': 'textGradient 4s ease infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              fadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              gradientX: {
+                '0%, 100%': { 'background-position': '0% 50%' },
+                '50%': { 'background-position': '100% 50%' },
+              },
+              textGradient: {
+                '0%, 100%': { 'background-position': 'left center' },
+                '50%': { 'background-position': 'right center' },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap');
+
+      body {
+        font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont,
+          sans-serif;
+        background-color: #f5f5f7;
+        color: #1d1d1f;
+      }
+
+      .frosted-glass {
+        backdrop-filter: blur(16px) saturate(180%);
+        -webkit-backdrop-filter: blur(16px) saturate(180%);
+        background-color: rgba(255, 255, 255, 0.75);
+        border: 1px solid rgba(255, 255, 255, 0.125);
+      }
+
+      .shadow-soft {
+        box-shadow: 0 8px 32px 0 rgba(0, 113, 227, 0.1);
+      }
+
+      .gradient-text {
+        background: linear-gradient(90deg, #0071e3 0%, #00a1e7 100%);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: text-gradient 4s ease infinite;
+      }
+
+      .hover-scale {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .hover-scale:hover {
+        transform: scale(1.02);
+        box-shadow: 0 12px 40px 0 rgba(0, 113, 227, 0.15);
+      }
+
+      .video-container {
+        aspect-ratio: 16/9;
+        background: linear-gradient(135deg, #f5f5f7 0%, #e0e0e7 100%);
+      }
+
+      .chapter-marker {
+        position: absolute;
+        left: 0;
+        width: 4px;
+        height: 20px;
+        background-color: #0071e3;
+        border-radius: 2px;
+        transform: translateY(-50%);
+      }
+
+      .animated-gradient {
+        background-size: 300% 300%;
+        background-image: linear-gradient(
+          45deg,
+          #0071e3 0%,
+          #00a1e7 25%,
+          #0071e3 50%,
+          #00a1e7 75%,
+          #0071e3 100%
+        );
+        animation: gradientX 8s ease infinite;
+      }
+
+      .progress-bar {
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          #0071e3 0%,
+          rgba(0, 113, 227, 0.2) 0%
+        );
+        transition: background 0.3s ease;
+      }
+
+      .play-button {
+        box-shadow: 0 0 0 12px rgba(0, 113, 227, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .play-button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 15px rgba(0, 113, 227, 0.2);
+      }
+    </style>
+  </head>
+  <body class="min-h-screen">
+    <!-- Animated background elements -->
+    <div class="fixed inset-0 overflow-hidden -z-10">
+      <div
+        class="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-brand/10 blur-3xl animate-float"
+      ></div>
+      <div
+        class="absolute top-2/3 right-1/3 w-80 h-80 rounded-full bg-brand/5 blur-3xl animate-float"
+        style="animation-delay: 2s"
+      ></div>
+    </div>
+
+    <!-- Main container -->
+    <div class="container mx-auto px-4 py-12 max-w-6xl">
+      <!-- Navigation -->
+      <div class="flex justify-between items-center mb-12 animate-fade-in">
+        <a
+          href="#"
+          class="flex items-center text-brand hover:text-brand/80 transition-colors"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 mr-2"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          Back to Project
+        </a>
+        <div class="text-sm text-gray-500">Interactive Demo</div>
+      </div>
+
+      <!-- Demo header -->
+      <div
+        class="text-center mb-12 animate-fade-in"
+        style="animation-delay: 0.1s"
+      >
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+          Neon Horizon Demo
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Watch this guided tour to learn how to maximize productivity with this
+          powerful AR toolkit.
+        </p>
+      </div>
+
+      <!-- Video player section -->
+      <div class="mb-16 animate-fade-in" style="animation-delay: 0.2s">
+        <!-- Video container -->
+        <div
+          class="video-container rounded-2xl overflow-hidden shadow-soft mb-4 relative group"
+        >
+          <!-- Placeholder for video -->
+          <div class="w-full h-full flex items-center justify-center">
+            <button
+              class="play-button bg-white rounded-full w-16 h-16 flex items-center justify-center z-10"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8 text-brand"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Progress bar -->
+          <div class="absolute bottom-0 left-0 right-0 h-1 bg-gray-200">
+            <div
+              class="progress-bar h-full"
+              style="
+                background: linear-gradient(
+                  90deg,
+                  #0071e3 0%,
+                  #0071e3 35%,
+                  rgba(0, 113, 227, 0.2) 35%
+                );
+              "
+            ></div>
+          </div>
+
+          <!-- Chapter markers -->
+          <div class="chapter-marker" style="top: 50%; left: 35%"></div>
+        </div>
+
+        <!-- Video controls -->
+        <div class="flex justify-between items-center px-2">
+          <span class="text-sm text-gray-500">0:45</span>
+          <div class="flex items-center gap-4">
+            <button class="text-gray-500 hover:text-brand transition-colors">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </button>
+            <button class="text-gray-500 hover:text-brand transition-colors">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </button>
+            <button class="text-gray-500 hover:text-brand transition-colors">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
+          </div>
+          <span class="text-sm text-gray-500">2:15</span>
+        </div>
+      </div>
+
+      <!-- Chapters navigation -->
+      <div
+        class="frosted-glass rounded-2xl p-6 shadow-soft mb-12 animate-fade-in"
+        style="animation-delay: 0.3s"
+      >
+        <h3 class="font-semibold text-lg mb-4 flex items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 text-brand mr-2"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"
+            />
+          </svg>
+          Quick Navigation
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a
+            href="#"
+            class="flex items-start p-3 rounded-lg hover:bg-white/50 transition-colors group"
+          >
+            <span
+              class="bg-brand/10 text-brand w-8 h-8 rounded-full flex items-center justify-center mr-3 flex-shrink-0 group-hover:bg-brand/20"
+              >1</span
+            >
+            <div>
+              <h4 class="font-medium mb-1">Getting Started</h4>
+              <p class="text-sm text-gray-600">0:00 - 0:45</p>
+            </div>
+          </a>
+          <a
+            href="#"
+            class="flex items-start p-3 rounded-lg hover:bg-white/50 transition-colors group"
+          >
+            <span
+              class="bg-brand/10 text-brand w-8 h-8 rounded-full flex items-center justify-center mr-3 flex-shrink-0 group-hover:bg-brand/20"
+              >2</span
+            >
+            <div>
+              <h4 class="font-medium mb-1">Core Features</h4>
+              <p class="text-sm text-gray-600">0:45 - 1:30</p>
+            </div>
+          </a>
+          <a
+            href="#"
+            class="flex items-start p-3 rounded-lg hover:bg-white/50 transition-colors group"
+          >
+            <span
+              class="bg-brand/10 text-brand w-8 h-8 rounded-full flex items-center justify-center mr-3 flex-shrink-0 group-hover:bg-brand/20"
+              >3</span
+            >
+            <div>
+              <h4 class="font-medium mb-1">Advanced Techniques</h4>
+              <p class="text-sm text-gray-600">1:30 - 2:15</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Trainer notes -->
+      <div
+        class="frosted-glass rounded-2xl p-6 shadow-soft mb-12 animate-fade-in"
+        style="animation-delay: 0.4s"
+      >
+        <div class="flex justify-between items-start mb-4">
+          <h3 class="font-semibold text-lg flex items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 text-brand mr-2"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            Trainer's Notes
+          </h3>
+          <button
+            class="text-brand hover:text-brand/80 transition-colors text-sm font-medium flex items-center"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4 mr-1"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            Download Slides
+          </button>
+        </div>
+        <div class="space-y-4 text-gray-600">
+          <div class="p-4 bg-white/50 rounded-lg">
+            <h4 class="font-medium text-gray-800 mb-2">
+              Key Learning Objectives:
+            </h4>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>
+                Understand the core architecture of the AR rendering system
+              </li>
+              <li>
+                Learn how to customize the interface for different use cases
+              </li>
+              <li>Master the gesture controls for optimal user experience</li>
+            </ul>
+          </div>
+          <div class="p-4 bg-white/50 rounded-lg">
+            <h4 class="font-medium text-gray-800 mb-2">Common Questions:</h4>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>"How does this compare to native ARKit/ARCore solutions?"</li>
+              <li>
+                "What are the hardware requirements for optimal performance?"
+              </li>
+              <li>"Can the tracking system work indoors without GPS?"</li>
+            </ul>
+          </div>
+          <div class="p-4 bg-white/50 rounded-lg">
+            <h4 class="font-medium text-gray-800 mb-2">Pro Tips:</h4>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>
+                Use the developer mode (triple-tap settings icon) for advanced
+                controls
+              </li>
+              <li>
+                The system works best with 60%+ battery life on mobile devices
+              </li>
+              <li>
+                Calibrate in open spaces first before moving to dense urban
+                areas
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resources section -->
+      <div
+        class="frosted-glass rounded-2xl p-6 shadow-soft mb-12 animate-fade-in"
+        style="animation-delay: 0.5s"
+      >
+        <h3 class="font-semibold text-lg mb-4 flex items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 text-brand mr-2"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"
+            />
+          </svg>
+          Learning Resources
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <a
+            href="#"
+            class="p-4 rounded-lg border border-gray-200 hover:border-brand/50 transition-colors flex items-start group"
+          >
+            <div
+              class="bg-brand/10 text-brand p-2 rounded-lg mr-4 flex-shrink-0 group-hover:bg-brand/20"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-medium mb-1">Documentation</h4>
+              <p class="text-sm text-gray-600">
+                Complete API reference and usage guides
+              </p>
+            </div>
+          </a>
+          <a
+            href="#"
+            class="p-4 rounded-lg border border-gray-200 hover:border-brand/50 transition-colors flex items-start group"
+          >
+            <div
+              class="bg-brand/10 text-brand p-2 rounded-lg mr-4 flex-shrink-0 group-hover:bg-brand/20"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-medium mb-1">FAQ</h4>
+              <p class="text-sm text-gray-600">
+                Answers to common technical questions
+              </p>
+            </div>
+          </a>
+          <a
+            href="#"
+            class="p-4 rounded-lg border border-gray-200 hover:border-brand/50 transition-colors flex items-start group"
+          >
+            <div
+              class="bg-brand/10 text-brand p-2 rounded-lg mr-4 flex-shrink-0 group-hover:bg-brand/20"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
+                />
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-medium mb-1">Sample Projects</h4>
+              <p class="text-sm text-gray-600">
+                Starter templates for different use cases
+              </p>
+            </div>
+          </a>
+          <a
+            href="#"
+            class="p-4 rounded-lg border border-gray-200 hover:border-brand/50 transition-colors flex items-start group"
+          >
+            <div
+              class="bg-brand/10 text-brand p-2 rounded-lg mr-4 flex-shrink-0 group-hover:bg-brand/20"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-medium mb-1">Workshop Schedule</h4>
+              <p class="text-sm text-gray-600">
+                Upcoming live training sessions
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- CTA section -->
+      <div class="text-center animate-fade-in" style="animation-delay: 0.6s">
+        <h3 class="text-2xl font-bold mb-4">
+          Ready to implement this solution?
+        </h3>
+        <p class="text-gray-600 max-w-2xl mx-auto mb-8">
+          Get personalized guidance or schedule a team training session.
+        </p>
+        <a
+          href="#"
+          class="animated-gradient text-white px-8 py-4 rounded-xl font-medium inline-flex items-center"
+        >
+          Contact for Training
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 ml-2"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z"
+              clip-rule="evenodd"
+            />
+            <path
+              d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
