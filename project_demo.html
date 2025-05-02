@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Demo | Ephraim Samanyayi</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/favicon_io/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/favicon_io/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/assets/favicon_io/site.webmanifest" />
+    <title>Ephraim Samanyayi | Web Developer</title>
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/mobile.css" />
+    <!-- Bootstrap CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+      crossorigin="anonymous"
+    />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Animate.css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: '#0071e3',
+            },
+            animation: {
+              float: 'float 6s ease-in-out infinite',
+              'fade-in': 'fadeIn 0.5s ease-in',
+              'gradient-x': 'gradientX 8s ease infinite',
+              'text-gradient': 'textGradient 4s ease infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              fadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              gradientX: {
+                '0%, 100%': { 'background-position': '0% 50%' },
+                '50%': { 'background-position': '100% 50%' },
+              },
+              textGradient: {
+                '0%, 100%': { 'background-position': 'left center' },
+                '50%': { 'background-position': 'right center' },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap');
+
+      body {
+        font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont,
+          sans-serif;
+        background-color: #f5f5f7;
+        color: #1d1d1f;
+      }
+
+      .frosted-glass {
+        backdrop-filter: blur(16px) saturate(180%);
+        -webkit-backdrop-filter: blur(16px) saturate(180%);
+        background-color: rgba(255, 255, 255, 0.75);
+        border: 1px solid rgba(255, 255, 255, 0.125);
+      }
+
+      .shadow-soft {
+        box-shadow: 0 8px 32px 0 rgba(0, 113, 227, 0.1);
+      }
+
+      .gradient-text {
+        background: linear-gradient(90deg, #0071e3 0%, #00a1e7 100%);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: text-gradient 4s ease infinite;
+      }
+
+      .hover-scale {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .hover-scale:hover {
+        transform: scale(1.02);
+        box-shadow: 0 12px 40px 0 rgba(0, 113, 227, 0.15);
+      }
+
+      .video-container {
+        aspect-ratio: 16/9;
+        background: linear-gradient(135deg, #f5f5f7 0%, #e0e0e7 100%);
+      }
+
+      .chapter-marker {
+        position: absolute;
+        left: 0;
+        width: 4px;
+        height: 20px;
+        background-color: #0071e3;
+        border-radius: 2px;
+        transform: translateY(-50%);
+      }
+
+      .animated-gradient {
+        background-size: 300% 300%;
+        background-image: linear-gradient(
+          45deg,
+          #0071e3 0%,
+          #00a1e7 25%,
+          #0071e3 50%,
+          #00a1e7 75%,
+          #0071e3 100%
+        );
+        animation: gradientX 8s ease infinite;
+      }
+
+      .progress-bar {
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          #0071e3 0%,
+          rgba(0, 113, 227, 0.2) 0%
+        );
+        transition: background 0.3s ease;
+      }
+
+      .play-button {
+        box-shadow: 0 0 0 12px rgba(0, 113, 227, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .play-button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 15px rgba(0, 113, 227, 0.2);
+      }
+
+      .video-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+      }
+
+      .video-overlay.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen">
+    <!-- Animated background elements -->
+    <div class="fixed inset-0 overflow-hidden -z-10">
+      <div
+        class="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-brand/10 blur-3xl animate-float"
+      ></div>
+      <div
+        class="absolute top-2/3 right-1/3 w-80 h-80 rounded-full bg-brand/5 blur-3xl animate-float"
+        style="animation-delay: 2s"
+      ></div>
+    </div>
+
+    <!-- Main container -->
+    <div class="container mx-auto px-4 py-12 max-w-6xl">
+      <!-- Navigation -->
+      <div class="flex justify-between items-center mb-12 animate-fade-in">
+        <a
+          href="#"
+          class="flex items-center text-brand hover:text-brand/80 transition-colors"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 mr-2"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          Back to Project
+        </a>
+        <div class="text-sm text-gray-500">Interactive Demo</div>
+      </div>
+
+      <!-- Demo header -->
+      <div
+        class="text-center mb-12 animate-fade-in"
+        style="animation-delay: 0.1s"
+      >
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+          EventsPro - Events Management System
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Watch the demo below to see how the app works. This video showcases
+          the Event Management System (EMS) I've been building. An event
+          management app to plan, assign, and track tasks effortlessly.
+        </p>
+      </div>
+
+      <!-- Video player section -->
+      <div class="mb-16 animate-fade-in" style="animation-delay: 0.2s">
+        <!-- Video container -->
+        <div
+          class="video-container rounded-2xl overflow-hidden shadow-soft mb-4 relative group"
+          id="videoContainer"
+        >
+          <!-- Video element -->
+          <video class="w-full h-full" id="videoPlayer">
+            <!-- You can replace this with your video URL later -->
+            <source
+              src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+
+          <!-- Video overlay with play button -->
+          <div class="video-overlay" id="videoOverlay">
+            <button
+              class="play-button bg-white rounded-full w-16 h-16 flex items-center justify-center z-10"
+              id="playButton"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8 text-brand"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                id="playIcon"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Progress bar -->
+          <div class="absolute bottom-0 left-0 right-0 h-1 bg-gray-200">
+            <div class="progress-bar h-full" id="progressBar"></div>
+          </div>
+
+          <!-- Chapter markers -->
+          <div class="chapter-marker"></div>
+        </div>
+
+        <!-- Video controls -->
+        <div class="flex justify-between items-center px-2">
+          <span class="text-sm text-gray-500" id="currentTime">0:00</span>
+          <div class="flex items-center gap-4">
+            <button
+              class="text-gray-500 hover:text-brand transition-colors"
+              id="rewindButton"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </button>
+            <button
+              class="text-gray-500 hover:text-brand transition-colors"
+              id="playPauseButton"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                id="playPauseIcon"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </button>
+            <button
+              class="text-gray-500 hover:text-brand transition-colors"
+              id="forwardButton"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
+          </div>
+          <span class="text-sm text-gray-500" id="duration">0:00</span>
+        </div>
+      </div>
+
+      <!-- Trainer notes -->
+      <!-- <div
+        class="frosted-glass rounded-2xl p-6 shadow-soft mb-12 animate-fade-in"
+        style="animation-delay: 0.4s"
+      >
+        <div class="flex justify-between items-start mb-4">
+          <h3 class="font-semibold text-lg flex items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 text-brand mr-2"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            EMS Project Overview
+          </h3>
+          <button
+            class="text-brand hover:text-brand/80 transition-colors text-sm font-medium flex items-center"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4 mr-1"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            Download Demo Info
+          </button>
+        </div>
+
+        <div class="space-y-4 text-gray-600">
+          <div class="p-4 bg-white/50 rounded-lg">
+            <h4 class="font-medium text-gray-800 mb-2">What is the EMS App?</h4>
+            <p>
+              The Event Management System (EMS) is a full-stack web application
+              that allows organizations to plan, manage, and track events
+              seamlessly. It includes tools for task assignment, contact
+              management, event registration, venue tracking, and Kanban-style
+              task boards.
+            </p>
+          </div>
+
+          <div class="p-4 bg-white/50 rounded-lg">
+            <h4 class="font-medium text-gray-800 mb-2">Key Features:</h4>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>Event creation and scheduling</li>
+              <li>Pre-event task manager with drag-and-drop Kanban board</li>
+              <li>
+                Contact management and automatic CRM creation on registration
+              </li>
+              <li>Venue facilities listing and assignment</li>
+            </ul>
+          </div>
+
+          <div class="p-4 bg-white/50 rounded-lg">
+            <h4 class="font-medium text-gray-800 mb-2">What’s Next:</h4>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>
+                Add role-based permissions for admins, organizers, and attendees
+              </li>
+              <li>Integrate ticket generation for event registrants</li>
+              <li>Build event analytics dashboard and reporting tools</li>
+            </ul>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Technologies Used -->
+      <div
+        class="frosted-glass rounded-2xl p-6 shadow-soft mb-12 animate-fade-in"
+        style="animation-delay: 0.3s"
+      >
+        <h3 class="font-semibold text-lg mb-4 flex items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="h-5 w-5 text-brand mr-2"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M12 6.75a5.25 5.25 0 0 1 6.775-5.025.75.75 0 0 1 .313 1.248l-3.32 3.319c.063.475.276.934.641 1.299.365.365.824.578 1.3.64l3.318-3.319a.75.75 0 0 1 1.248.313 5.25 5.25 0 0 1-5.472 6.756c-1.018-.086-1.87.1-2.309.634L7.344 21.3A3.298 3.298 0 1 1 2.7 16.657l8.684-7.151c.533-.44.72-1.291.634-2.309A5.342 5.342 0 0 1 12 6.75ZM4.117 19.125a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75h-.008a.75.75 0 0 1-.75-.75v-.008Z"
+              clip-rule="evenodd"
+            />
+            <path
+              d="m10.076 8.64-2.201-2.2V4.874a.75.75 0 0 0-.364-.643l-3.75-2.25a.75.75 0 0 0-.916.113l-.75.75a.75.75 0 0 0-.113.916l2.25 3.75a.75.75 0 0 0 .643.364h1.564l2.062 2.062 1.575-1.297Z"
+            />
+            <path
+              fill-rule="evenodd"
+              d="m12.556 17.329 4.183 4.182a3.375 3.375 0 0 0 4.773-4.773l-3.306-3.305a6.803 6.803 0 0 1-1.53.043c-.394-.034-.682-.006-.867.042a.589.589 0 0 0-.167.063l-3.086 3.748Zm3.414-1.36a.75.75 0 0 1 1.06 0l1.875 1.876a.75.75 0 1 1-1.06 1.06L15.97 17.03a.75.75 0 0 1 0-1.06Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          Technologies Used
+        </h3>
+        <ul class="list-disc pl-6 text-gray-700 space-y-2 text-sm">
+          <li><strong>Laravel (PHP)</strong> – Backend framework</li>
+          <li>
+            <strong>Laravel Breeze</strong> – Authentication and frontend
+            starter
+          </li>
+          <li>
+            <strong>MySQL</strong> – Database for storing events, tasks,
+            contacts, etc.
+          </li>
+          <li>
+            <strong>React</strong> – Frontend JavaScript library for building UI
+          </li>
+          <li>
+            <strong>Inertia.js</strong> – Bridges Laravel backend with React
+            frontend
+          </li>
+          <li>
+            <strong>Tailwind CSS</strong> – Utility-first CSS framework for
+            styling
+          </li>
+          <li><strong>Heroicons</strong> – SVG icons used across the UI</li>
+          <li>
+            <strong>@dnd-kit</strong> – Drag-and-drop Kanban-style task board
+          </li>
+          <li><strong>Framer Motion</strong> – Animation library for React</li>
+          <li><strong>Vite</strong> – Fast development and build tool</li>
+          <li>
+            <strong>Axios</strong> – HTTP requests between frontend and backend
+          </li>
+        </ul>
+      </div>
+
+      <!-- Resources section -->
+      <div
+        class="frosted-glass rounded-2xl p-6 shadow-soft mb-12 animate-fade-in"
+        style="animation-delay: 0.5s"
+      >
+        <h3 class="font-semibold text-lg mb-4 flex items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="h-5 w-5 text-brand mr-2"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 0 1 .67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 1 1-.671-1.34l.041-.022ZM12 9a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+
+          Resources
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Live Link -->
+          <a
+            href="https://your-live-link-here.com"
+            target="_blank"
+            class="p-4 rounded-lg border border-gray-200 hover:border-brand/50 transition-colors flex items-start group"
+          >
+            <div
+              class="bg-brand/10 text-brand p-2 rounded-lg mr-4 flex-shrink-0 group-hover:bg-brand/20"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-medium mb-1">Live Demo</h4>
+              <p class="text-sm text-gray-600">
+                View the application in action.
+              </p>
+            </div>
+          </a>
+
+          <!-- GitHub Repo -->
+          <a
+            href="https://github.com/your-username/your-repo"
+            target="_blank"
+            class="p-4 rounded-lg border border-gray-200 hover:border-brand/50 transition-colors flex items-start group"
+          >
+            <div
+              class="bg-brand/10 text-brand p-2 rounded-lg mr-4 flex-shrink-0 group-hover:bg-brand/20"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12a12.04 12.04 0 008.21 11.45c.6.11.82-.26.82-.58v-2.16c-3.34.73-4.04-1.41-4.04-1.41-.55-1.38-1.35-1.75-1.35-1.75-1.1-.75.08-.74.08-.74 1.21.09 1.85 1.25 1.85 1.25 1.08 1.85 2.83 1.32 3.52 1.01.11-.78.42-1.32.76-1.63-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.31-.54-1.54.12-3.21 0 0 1-.32 3.3 1.23a11.49 11.49 0 016 0c2.29-1.55 3.29-1.23 3.29-1.23.66 1.67.25 2.9.12 3.21.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.62-5.49 5.92.43.38.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12.04 12.04 0 0024 12c0-6.63-5.37-12-12-12z"
+                />
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-medium mb-1">GitHub Repo</h4>
+              <p class="text-sm text-gray-600">
+                View the source code on GitHub.
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Cutting-Edge Contact Section -->
+    <section id="contact" class="relative py-12 md:py-20 overflow-hidden">
+      <!-- Floating tech elements - made smaller for mobile -->
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div
+          class="absolute top-1/4 left-1/4 w-6 h-6 md:w-10 md:h-10 rounded-full bg-blue-500 opacity-20 animate-float"
+        ></div>
+        <div
+          class="absolute top-1/3 right-1/4 w-8 h-8 md:w-12 md:h-12 rounded-full bg-blue-400 opacity-25 animate-float-delay"
+        ></div>
+        <div
+          class="absolute bottom-1/4 left-1/3 w-6 h-6 md:w-10 md:h-10 rounded-full bg-blue-300 opacity-15 animate-float"
+        ></div>
+      </div>
+
+      <div class="container mx-auto px-4 sm:px-6 relative">
+        <!-- Section Header -->
+        <div class="text-center mb-10 md:mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            Connect with Me
+          </h2>
+          <div
+            class="w-20 md:w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-300 mx-auto rounded-full"
+          ></div>
+          <p
+            class="mt-4 md:mt-6 text-base md:text-lg text-gray-600 max-w-2xl mx-auto"
+          >
+            Have a project in mind or want to discuss opportunities? Let's talk!
+          </p>
+        </div>
+
+        <!-- Grid container with proper responsive classes -->
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 mx-auto max-w-4xl"
+        >
+          <!-- Contact Info Card -->
+          <div
+            class="bg-white rounded-xl md:rounded-2xl shadow-lg md:shadow-xl overflow-hidden transition-all hover:shadow-md md:hover:shadow-2xl hover:-translate-y-1"
+          >
+            <div class="p-6 md:p-8">
+              <h3
+                class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6"
+              >
+                Contact Information
+              </h3>
+
+              <div class="space-y-4 md:space-y-6">
+                <!-- Email -->
+                <div class="flex items-start">
+                  <div
+                    class="flex-shrink-0 bg-blue-100 p-2 md:p-3 rounded-lg text-blue-600"
+                  >
+                    <i class="fas fa-envelope text-lg md:text-xl"></i>
+                  </div>
+                  <div class="ml-3 md:ml-4">
+                    <h4 class="text-xs md:text-sm font-semibold text-gray-500">
+                      Email
+                    </h4>
+                    <a
+                      href="mailto:esamanyayi95@gmail.com"
+                      class="text-base md:text-lg text-gray-800 hover:text-blue-600 transition-colors"
+                    >
+                      esamanyayi95@gmail.com
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Phone -->
+                <div class="flex items-start">
+                  <div
+                    class="flex-shrink-0 bg-indigo-100 p-2 md:p-3 rounded-lg text-indigo-600"
+                  >
+                    <i class="fas fa-phone text-lg md:text-xl"></i>
+                  </div>
+                  <div class="ml-3 md:ml-4">
+                    <h4 class="text-xs md:text-sm font-semibold text-gray-500">
+                      Phone
+                    </h4>
+                    <a
+                      href="tel:+27618514214"
+                      class="text-base md:text-lg text-gray-800 hover:text-indigo-600 transition-colors"
+                    >
+                      061 851 4214
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Location -->
+                <div class="flex items-start">
+                  <div
+                    class="flex-shrink-0 bg-purple-100 p-2 md:p-3 rounded-lg text-purple-600"
+                  >
+                    <i class="fas fa-map-marker-alt text-lg md:text-xl"></i>
+                  </div>
+                  <div class="ml-3 md:ml-4">
+                    <h4 class="text-xs md:text-sm font-semibold text-gray-500">
+                      Location
+                    </h4>
+                    <p class="text-base md:text-lg text-gray-800">
+                      Cape Town, South Africa
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Social Links - Improved for mobile -->
+              <div class="mt-8 md:mt-10">
+                <h4
+                  class="text-xs md:text-sm font-semibold text-gray-500 mb-3 md:mb-4"
+                >
+                  Follow Me
+                </h4>
+                <div class="flex space-x-3 md:space-x-4">
+                  <a
+                    target="_blank"
+                    href="https://github.com/Ephraim06"
+                    class="social-icon w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-lg bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-600 transition-colors"
+                  >
+                    <i class="fab fa-github text-base md:text-lg"></i>
+                  </a>
+                  <a
+                    target="_blank"
+                    href="https://www.linkedin.com/in/ephraim-s-281742148/"
+                    class="social-icon w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-lg bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-600 transition-colors"
+                  >
+                    <i class="fab fa-linkedin-in text-base md:text-lg"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Download CV Button -->
+              <div class="mt-8 md:mt-10">
+                <a
+                  target="_blank"
+                  href="/path-to-your-cv.pdf"
+                  download
+                  class="inline-flex items-center px-4 py-2 md:px-6 md:py-3 border border-transparent text-sm md:text-base font-medium rounded-full shadow-sm text-white bg-blue-500 hover:bg-blue-600 transition-all transform hover:scale-105"
+                >
+                  <i class="fas fa-download mr-2 text-sm md:text-base"></i>
+                  CV/Resume
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modern Form -->
+          <div
+            class="bg-white rounded-xl md:rounded-2xl shadow-lg md:shadow-xl overflow-hidden transition-all hover:shadow-md md:hover:shadow-2xl hover:-translate-y-1"
+          >
+            <div class="p-6 md:p-8">
+              <h3
+                class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6"
+              >
+                Send Me a Message
+              </h3>
+              <form
+                action="https://formspree.io/f/mnndqrbr"
+                method="POST"
+                class="space-y-4 md:space-y-6"
+              >
+                <!-- Name Field -->
+                <div>
+                  <label
+                    for="name"
+                    class="block text-xs md:text-sm font-medium text-gray-700 mb-1"
+                    >Name</label
+                  >
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    class="w-full px-3 py-2 md:px-4 md:py-2.5 text-sm md:text-base border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-blue-500 transition-all"
+                    placeholder="Your name"
+                  />
+                </div>
+
+                <!-- Email Field -->
+                <div>
+                  <label
+                    for="email"
+                    class="block text-xs md:text-sm font-medium text-gray-700 mb-1"
+                    >Email</label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    class="w-full px-3 py-2 md:px-4 md:py-2.5 text-sm md:text-base border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-blue-500 transition-all"
+                    placeholder="your.email@example.com"
+                  />
+                </div>
+
+                <!-- Subject Field -->
+                <div>
+                  <label
+                    for="subject"
+                    class="block text-xs md:text-sm font-medium text-gray-700 mb-1"
+                    >Subject</label
+                  >
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    required
+                    class="w-full px-3 py-2 md:px-4 md:py-2.5 text-sm md:text-base border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-blue-500 transition-all"
+                    placeholder="What's this about?"
+                  />
+                </div>
+
+                <!-- Message Field -->
+                <div>
+                  <label
+                    for="message"
+                    class="block text-xs md:text-sm font-medium text-gray-700 mb-1"
+                    >Message</label
+                  >
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="4"
+                    required
+                    class="w-full px-3 py-2 md:px-4 md:py-2.5 text-sm md:text-base border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-blue-500 transition-all"
+                    placeholder="Your message here..."
+                  ></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="pt-2">
+                  <button
+                    type="submit"
+                    class="w-full flex items-center justify-center px-6 py-2.5 md:px-8 md:py-3 border border-transparent text-sm md:text-base font-medium rounded-full text-white bg-blue-500 hover:bg-blue-600 transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                  >
+                    <i class="fas fa-paper-plane mr-2 text-sm md:text-base"></i>
+                    Send Message
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      /* Animations */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      .animate-float {
+        animation: float 6s ease-in-out infinite;
+      }
+      .animate-float-delay {
+        animation: float 7s ease-in-out infinite 1s;
+      }
+
+      /* Custom styles */
+      .contact-info-card,
+      .contact-form-card {
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .social-icon {
+        @apply w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300;
+      }
+
+      .form-input,
+      .form-textarea {
+        @apply block w-full shadow-sm sm:text-sm border-gray-300 rounded-md transition-all duration-200;
+      }
+
+      .form-input:focus,
+      .form-textarea:focus {
+        @apply ring-2 ring-blue-400 border-blue-500;
+      }
+
+      .download-btn,
+      .submit-btn {
+        box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3),
+          0 2px 4px -1px rgba(59, 130, 246, 0.2);
+      }
+
+      .download-btn:hover,
+      .submit-btn:hover {
+        box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.4),
+          0 4px 6px -2px rgba(59, 130, 246, 0.2);
+      }
+    </style>
+    <!-- OUT OF THIS WORLD FOOTER -->
+    <footer class="footer">
+      <!-- Particle background (optional, requires JS) -->
+      <div class="footer-particles" id="footer-particles"></div>
+
+      <div class="footer-content">
+        <!-- Futuristic Logo Section -->
+        <div class="footer-logo">
+          <span>ES</span>
+          <p>Ephraim Samanyayi</p>
+          <div class="footer-social">
+            <a
+              target="_blank"
+              href="https://github.com/Ephraim06"
+              class="social-link"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              target="_blank"
+              href="https://www.linkedin.com/in/ephraim-s-281742148/"
+              class="social-link"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <!-- <a href="#" class="social-link" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a> -->
+          </div>
+        </div>
+
+        <!-- Explore Links -->
+        <div class="link-group">
+          <h4>Explore</h4>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="projects.html">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <!-- Connect Links -->
+        <div class="link-group">
+          <h4>Connect</h4>
+          <a href="mailto:esamanyayi95@gmail.com">Email</a>
+          <a href="tel:+27618514214">Phone</a>
+          <a href="https://github.com/Ephraim06" target="_blank">GitHub</a>
+          <a
+            href="https://www.linkedin.com/in/ephraim-s-281742148/"
+            target="_blank"
+            >LinkedIn</a
+          >
+        </div>
+
+        <!-- Newsletter Section -->
+        <div class="footer-newsletter">
+          <h4>Get Updates</h4>
+          <p>
+            Subscribe to my newsletter for the latest projects and insights.
+          </p>
+          <form
+            action="https://formspree.io/f/mnndqrbr"
+            method="POST"
+            class="newsletter-form"
+            data-formspree
+          >
+            <input
+              type="email"
+              class="newsletter-input"
+              name="email"
+              placeholder="Your email"
+              required
+            />
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Futuristic Copyright Bar -->
+      <div class="footer-bottom">
+        <p>
+          &copy; <span id="current-year"></span> Ephraim Samanyayi. All rights
+          reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Video elements
+        const videoPlayer = document.getElementById('videoPlayer');
+        const videoOverlay = document.getElementById('videoOverlay');
+        const playButton = document.getElementById('playButton');
+        const playIcon = document.getElementById('playIcon');
+        const playPauseButton = document.getElementById('playPauseButton');
+        const playPauseIcon = document.getElementById('playPauseIcon');
+        const progressBar = document.getElementById('progressBar');
+        const currentTimeDisplay = document.getElementById('currentTime');
+        const durationDisplay = document.getElementById('duration');
+        const rewindButton = document.getElementById('rewindButton');
+        const forwardButton = document.getElementById('forwardButton');
+        const chapterLinks = document.querySelectorAll('.chapter-link');
+
+        // Format time from seconds to MM:SS
+        function formatTime(seconds) {
+          const minutes = Math.floor(seconds / 60);
+          const remainingSeconds = Math.floor(seconds % 60);
+          return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+        }
+
+        // Update progress bar and time displays
+        function updateProgress() {
+          const progress =
+            (videoPlayer.currentTime / videoPlayer.duration) * 100;
+          progressBar.style.background = `linear-gradient(90deg, #0071e3 0%, #0071e3 ${progress}%, rgba(0, 113, 227, 0.2) ${progress}%)`;
+          currentTimeDisplay.textContent = formatTime(videoPlayer.currentTime);
+        }
+
+        // Update video duration display
+        function updateDuration() {
+          if (!isNaN(videoPlayer.duration)) {
+            durationDisplay.textContent = formatTime(videoPlayer.duration);
+          }
+        }
+
+        // Toggle play/pause
+        function togglePlayPause() {
+          if (videoPlayer.paused) {
+            videoPlayer.play();
+            videoOverlay.classList.add('hidden');
+            playIcon.innerHTML =
+              '<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"/>';
+            playPauseIcon.innerHTML =
+              '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"/>';
+          } else {
+            videoPlayer.pause();
+            playIcon.innerHTML =
+              '<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/>';
+            playPauseIcon.innerHTML =
+              '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>';
+          }
+        }
+
+        // Skip forward or backward
+        function skip(seconds) {
+          videoPlayer.currentTime += seconds;
+        }
+
+        // Jump to chapter
+        function jumpToChapter(time) {
+          videoPlayer.currentTime = time;
+          if (videoPlayer.paused) {
+            togglePlayPause();
+          }
+        }
+
+        // Event listeners
+        videoPlayer.addEventListener('timeupdate', updateProgress);
+        videoPlayer.addEventListener('loadedmetadata', updateDuration);
+        videoPlayer.addEventListener('ended', function () {
+          playIcon.innerHTML =
+            '<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/>';
+          playPauseIcon.innerHTML =
+            '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>';
+          videoOverlay.classList.remove('hidden');
+        });
+
+        playButton.addEventListener('click', togglePlayPause);
+        playPauseButton.addEventListener('click', togglePlayPause);
+        videoOverlay.addEventListener('click', togglePlayPause);
+
+        rewindButton.addEventListener('click', function () {
+          skip(-10);
+        });
+
+        forwardButton.addEventListener('click', function () {
+          skip(10);
+        });
+
+        chapterLinks.forEach((link) => {
+          link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const time = parseInt(this.getAttribute('data-time'));
+            jumpToChapter(time);
+          });
+        });
+
+        // Click on video container to play/pause
+        document
+          .getElementById('videoContainer')
+          .addEventListener('click', function (e) {
+            if (e.target === this || e.target === videoPlayer) {
+              togglePlayPause();
+            }
+          });
+
+        // Initialize with a sample video (you can replace this with your video URL later)
+        videoPlayer.src =
+          'https://videos.pexels.com/video-files/3850436/3850436-hd_1920_1080_24fps.mp4';
+      });
+    </script>
+    <!-- Font Awesome for icons (add in head) -->
+    <script
+      src="https://kit.fontawesome.com/your-code.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Optional: Simple year script -->
+    <script>
+      document.getElementById('current-year').textContent =
+        new Date().getFullYear();
+
+      // Optional: If you want to add particle.js later:
+      // particlesJS.load('footer-particles', 'particles-config.json');
+    </script>
+  </body>
+</html>
