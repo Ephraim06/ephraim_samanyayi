@@ -1,630 +1,501 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
-    <title>Projects | Ephraim Samanyayi</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              brand: '#0071e3',
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+  <title>Projects | Ephraim Samanyayi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#0071e3',
+            dark: '#1d1d1f',
+            light: '#f5f5f7',
+            muted: '#86868b',
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.5s ease-in',
+            'gradient-x': 'gradientX 8s ease infinite',
+            'infinite-scroll': 'infiniteScroll 25s linear infinite',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0', transform: 'translateY(10px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
             },
-            animation: {
-              float: 'float 6s ease-in-out infinite',
-              'fade-in': 'fadeIn 0.5s ease-in',
-              'gradient-x': 'gradientX 8s ease infinite',
+            gradientX: {
+              '0%, 100%': { 'background-position': '0% 50%' },
+              '50%': { 'background-position': '100% 50%' },
             },
-            keyframes: {
-              float: {
-                '0%, 100%': { transform: 'translateY(0)' },
-                '50%': { transform: 'translateY(-10px)' },
-              },
-              fadeIn: {
-                '0%': { opacity: '0', transform: 'translateY(10px)' },
-                '100%': { opacity: '1', transform: 'translateY(0)' },
-              },
-              gradientX: {
-                '0%, 100%': { 'background-position': '0% 50%' },
-                '50%': { 'background-position': '100% 50%' },
-              },
+            infiniteScroll: {
+              '0%': { transform: 'translateX(0)' },
+              '100%': { transform: 'translateX(-50%)' },
             },
           },
         },
-      };
-    </script>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap');
+      },
+    };
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
 
-      body {
-        font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont,
-          sans-serif;
-        background-color: #f5f5f7;
-        color: #1d1d1f;
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #ffffff;
+      color: #1d1d1f;
+    }
+
+    /* Smooth gradient text */
+    .gradient-text {
+      background: linear-gradient(135deg, #0071e3 0%, #00a1e7 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Project card container - light background like inspiration */
+    .project-item {
+      background-color: #f5f5f7;
+      border-radius: 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    .dark .project-item {
+      background-color: #1c1c1e;
+    }
+
+    /* Image container with aspect ratio */
+    .image-wrapper {
+      position: relative;
+      aspect-ratio: 5 / 4;
+      overflow: hidden;
+      border-radius: 0.75rem;
+      background-color: #e5e5ea;
+    }
+
+    /* The zoom icon that appears on hover */
+    .zoom-button {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 2.5rem;
+      height: 2.5rem;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0071e3;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1.2);
+      opacity: 0;
+      visibility: hidden;
+      z-index: 10;
+    }
+
+    /* Show zoom button on hover over the image wrapper */
+    .image-wrapper:hover .zoom-button {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Subtle image scale on hover */
+    .image-wrapper img {
+      transition: transform 0.5s ease;
+    }
+
+    .image-wrapper:hover img {
+      transform: scale(1.03);
+    }
+
+    /* Visit site link styling - like inspiration */
+    .visit-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      color: #1d1d1f;
+      background: white;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s ease, background 0.2s ease;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .visit-link:hover {
+      color: #0071e3;
+      background: #ffffff;
+    }
+
+    .visit-link svg {
+      width: 1rem;
+      height: 1rem;
+      flex-shrink: 0;
+    }
+
+    /* Title link with bottom border hover */
+    .project-title-link {
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease, color 0.2s ease;
+      text-decoration: none;
+      color: #1d1d1f;
+      font-weight: 600;
+    }
+
+    .project-title-link:hover {
+      border-bottom-color: #0071e3;
+      color: #0071e3;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 640px) {
+      .project-title-link {
+        font-size: 1.125rem;
       }
-
-      .frosted-glass {
-        backdrop-filter: blur(16px) saturate(180%);
-        -webkit-backdrop-filter: blur(16px) saturate(180%);
-        background-color: rgba(255, 255, 255, 0.75);
-        border: 1px solid rgba(255, 255, 255, 0.125);
+      .visit-link {
+        padding: 0.375rem 0.625rem;
+        font-size: 0.8125rem;
       }
+    }
 
-      .shadow-soft {
-        box-shadow: 0 8px 32px 0 rgba(0, 113, 227, 0.1);
+    /* For smaller screens, always show zoom button (optional, touch devices) */
+    @media (hover: none) and (pointer: coarse) {
+      .zoom-button {
+        opacity: 0.9;
+        visibility: visible;
+        width: 2.2rem;
+        height: 2.2rem;
       }
+    }
 
-      .gradient-text {
-        background: linear-gradient(90deg, #0071e3 0%, #00a1e7 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #c7c7cc;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body class="min-h-screen antialiased">
 
-      .hover-scale {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
+  <!-- Main container -->
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-14 max-w-7xl">
+    
+    <!-- Back button -->
+    <a
+      href="index.html"
+      class="inline-flex items-center text-brand hover:text-brand/80 transition-colors mb-8 sm:mb-10 animate-fade-in group"
+      style="animation-delay: 0.1s">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-4 sm:h-5 w-4 sm:w-5 mr-1.5 sm:mr-2 transition-transform group-hover:-translate-x-1"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+          clip-rule="evenodd"
+        />
+      </svg>
+      <span class="text-sm sm:text-base font-medium">Back to Home Page</span>
+    </a>
 
-      .hover-scale:hover {
-        transform: scale(1.02);
-        box-shadow: 0 12px 40px 0 rgba(0, 113, 227, 0.15);
-      }
+    <!-- Header -->
+    <header class="mb-10 sm:mb-14 lg:mb-16 animate-fade-in" style="animation-delay: 0.15s">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-5 gradient-text">
+        Check Out My Latest <span class="text-brand">Projects</span>
+      </h1>
+      <p class="text-base sm:text-lg lg:text-xl text-muted max-w-2xl">
+        I'm here to help if you're searching for a product designer to bring your idea to life or a design partner to help take your business to the next level.
+      </p>
+    </header>
 
-      .project-card {
-        position: relative;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .project-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 20px 60px 0 rgba(0, 113, 227, 0.15);
-      }
-
-      .project-card::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          180deg,
-          rgba(0, 0, 0, 0.1) 0%,
-          rgba(0, 0, 0, 0.7) 60%,
-          rgba(0, 0, 0, 0.9) 100%
-        );
-        border-radius: 1rem;
-        z-index: 1;
-      }
-
-      .animated-gradient {
-        background-size: 300% 300%;
-        background-image: linear-gradient(
-          45deg,
-          #0071e3 0%,
-          #00a1e7 25%,
-          #0071e3 50%,
-          #00a1e7 75%,
-          #0071e3 100%
-        );
-        animation: gradientX 8s ease infinite;
-      }
-
-      /* Mobile optimizations */
-      @media (max-width: 640px) {
-        .project-card::before {
-          background: linear-gradient(
-            180deg,
-            rgba(0, 0, 0, 0.1) 0%,
-            rgba(0, 0, 0, 0.6) 50%,
-            rgba(0, 0, 0, 0.85) 100%
-          );
-        }
-        
-        .project-card .action-buttons {
-          opacity: 1;
-        }
-      }
-
-      /* Tablet optimizations */
-      @media (min-width: 641px) and (max-width: 1023px) {
-        .project-card-lg {
-          height: 400px;
-        }
-      }
-    </style>
-  </head>
-  <body class="min-h-screen">
-    <!-- Animated background elements - responsive -->
-    <div class="fixed inset-0 overflow-hidden -z-10">
-      <div
-        class="absolute top-1/4 left-1/4 w-48 sm:w-64 md:w-72 h-48 sm:h-64 md:h-72 rounded-full bg-brand/10 blur-3xl animate-float"
-      ></div>
-      <div
-        class="absolute top-2/3 right-1/3 w-56 sm:w-80 md:w-96 h-56 sm:h-80 md:h-96 rounded-full bg-brand/5 blur-3xl animate-float"
-        style="animation-delay: 2s"
-      ></div>
-    </div>
-
-    <!-- Main container -->
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12 max-w-7xl">
-      <!-- Back button -->
-      <a
-        href="index.html"
-        class="inline-flex items-center text-brand hover:text-brand/80 transition-colors mb-6 sm:mb-8 animate-fade-in group"
-        style="animation-delay: 0.1s">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-4 sm:h-5 w-4 sm:w-5 mr-1.5 sm:mr-2 transition-transform group-hover:-translate-x-1"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
-            clip-rule="evenodd"
-          />
-        </svg>
-        <span class="text-sm sm:text-base">Back to Home Page</span>
-      </a>
-
-      <!-- Header -->
-      <header class="mb-10 sm:mb-12 lg:mb-16 text-center animate-fade-in">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 gradient-text">
-          My Projects
-        </h1>
-        <p class="text-base sm:text-lg lg:text-xl text-gray-600 max-w-xs sm:max-w-lg lg:max-w-2xl mx-auto px-4 sm:px-0">
-          I'm here to help if you're searching for a product designer to bring your idea to life or a design partner to help take your business to the next level.
-        </p>
-      </header>
-
-      <!-- Projects grid - responsive layout -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 mb-12 sm:mb-16">
-        
-        <!-- Project 1 - Simple card style -->
-        <a
-          href="beiramar-blouberg.html"
-          class="project-card group relative h-64 sm:h-80 md:h-96 rounded-2xl overflow-hidden hover-scale animate-fade-in"
-          style="animation-delay: 0.2s">
+    <!-- Projects List - unified style like inspiration -->
+    <div class="space-y-6 sm:space-y-8 lg:space-y-10 mb-14 sm:mb-20">
+      
+      <!-- Project 1: Beiramar-Blouberg -->
+      <div class="project-item p-4 sm:p-6 lg:p-8 animate-fade-in group" style="animation-delay: 0.2s">
+        <div class="image-wrapper">
           <img
             src="assets/img/projects/Beiramar.jpg"
             alt="Beiramar-Blouberg"
-            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-          <div class="absolute inset-0 z-10 p-4 sm:p-6 flex flex-col justify-end">
-            <div
-              class="inline-block bg-brand/20 text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">
-              Website
-            </div>
-            <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1 sm:mb-2">
-              Beiramar-Blouberg
-            </h3>
-            <p class="text-white/80 sm:text-white/90 text-xs sm:text-sm">Luxury Apartment Development</p>
-          </div>
-          <div
-            class="absolute top-3 sm:top-4 right-3 sm:right-4 z-10 w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-black/30 flex items-center justify-center backdrop-blur-sm transition-transform group-hover:scale-110">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-4 sm:h-5 w-4 sm:w-5 text-white"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            class="w-full h-full object-cover object-top"
+            loading="lazy" />
+          <!-- Zoom button appears on hover -->
+          <a href="assets/img/projects/Beiramar.jpg" 
+             class="zoom-button"
+             data-fancybox="gallery"
+             title="View larger image">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" class="h-5 w-5 sm:h-6 sm:w-6">
+              <path d="M10 4.167v11.666M4.167 10h11.666"></path>
             </svg>
+          </a>
+        </div>
+        <div class="flex flex-wrap items-start justify-between py-4 md:py-5 gap-4">
+          <div>
+            <h3 class="text-lg sm:text-xl lg:text-2xl font-semibold">
+              <a href="beiramar-blouberg.html" class="project-title-link">
+                Beiramar-Blouberg
+              </a>
+            </h3>
+            <p class="text-sm lg:text-base text-muted mt-1">Luxury Apartment Development · Website</p>
           </div>
-        </a>
+          <a href="beiramar-blouberg.html" class="visit-link">
+            <span>Visit Site</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9.917 4.583-5.834 5.834m.584-5.834h5.25v5.25"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
 
-        <!-- Project 2 - Simple card style -->
-        <a
-          href="albus_waveside_villa.html"
-          class="project-card group relative h-64 sm:h-80 md:h-96 rounded-2xl overflow-hidden hover-scale animate-fade-in"
-          style="animation-delay: 0.3s">
+      <!-- Project 2: Albus Waveside Villa -->
+      <div class="project-item p-4 sm:p-6 lg:p-8 animate-fade-in group" style="animation-delay: 0.25s">
+        <div class="image-wrapper">
           <img
             src="assets/img/projects/Albus-waveside-villa.jpg"
             alt="Albus Waveside Villa"
-            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-          <div class="absolute inset-0 z-10 p-4 sm:p-6 flex flex-col justify-end">
-            <div
-              class="inline-block bg-brand/20 text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">
-              UI/UX Design
-            </div>
-            <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1 sm:mb-2">
-              Albus Waveside Villa
-            </h3>
-            <p class="text-white/80 sm:text-white/90 text-xs sm:text-sm">
-              Sunset Beach's Exclusive Development
-            </p>
-          </div>
-          <div
-            class="absolute top-3 sm:top-4 right-3 sm:right-4 z-10 w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-black/30 flex items-center justify-center backdrop-blur-sm transition-transform group-hover:scale-110">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-4 sm:h-5 w-4 sm:w-5 text-white"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            class="w-full h-full object-cover object-top"
+            loading="lazy" />
+          <a href="assets/img/projects/Albus-waveside-villa.jpg" 
+             class="zoom-button"
+             data-fancybox="gallery"
+             title="View larger image">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" class="h-5 w-5 sm:h-6 sm:w-6">
+              <path d="M10 4.167v11.666M4.167 10h11.666"></path>
             </svg>
+          </a>
+        </div>
+        <div class="flex flex-wrap items-start justify-between py-4 md:py-5 gap-4">
+          <div>
+            <h3 class="text-lg sm:text-xl lg:text-2xl font-semibold">
+              <a href="albus_waveside_villa.html" class="project-title-link">
+                Albus Waveside Villa
+              </a>
+            </h3>
+            <p class="text-sm lg:text-base text-muted mt-1">Sunset Beach's Exclusive Development · UI/UX Design</p>
           </div>
-        </a>
+          <a href="albus_waveside_villa.html" class="visit-link">
+            <span>Visit Site</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9.917 4.583-5.834 5.834m.584-5.834h5.25v5.25"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
 
-        <!-- Project 3 - Simple card style -->
-        <a
-          href="project_details.html"
-          class="project-card group relative h-64 sm:h-80 md:h-96 rounded-2xl overflow-hidden hover-scale animate-fade-in"
-          style="animation-delay: 0.4s">
+      <!-- Project 3: Events Management System -->
+      <div class="project-item p-4 sm:p-6 lg:p-8 animate-fade-in group" style="animation-delay: 0.3s">
+        <div class="image-wrapper">
           <img
             src="assets/img/projects/events-management-app.jpg"
             alt="Events Management System"
-            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-          <div class="absolute inset-0 z-10 p-4 sm:p-6 flex flex-col justify-end">
-            <div
-              class="inline-block bg-brand/20 text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">
-              Web App
-            </div>
-            <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1 sm:mb-2">
-              Events Management System
-            </h3>
-            <p class="text-white/80 sm:text-white/90 text-xs sm:text-sm">Full Stack Application</p>
-          </div>
-          <div
-            class="absolute top-3 sm:top-4 right-3 sm:right-4 z-10 w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-black/30 flex items-center justify-center backdrop-blur-sm transition-transform group-hover:scale-110">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-4 sm:h-5 w-4 sm:w-5 text-white"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            class="w-full h-full object-cover object-top"
+            loading="lazy" />
+          <a href="assets/img/projects/events-management-app.jpg" 
+             class="zoom-button"
+             data-fancybox="gallery"
+             title="View larger image">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" class="h-5 w-5 sm:h-6 sm:w-6">
+              <path d="M10 4.167v11.666M4.167 10h11.666"></path>
             </svg>
-          </div>
-        </a>
-
-        <!-- Project 4 - Detailed card with Visit Site -->
-        <div
-          class="project-card group relative rounded-2xl overflow-hidden bg-white shadow-lg animate-fade-in"
-          style="animation-delay: 0.5s">
-          <div class="relative h-64 sm:h-80 md:h-[450px] lg:h-[500px] overflow-hidden">
-            <img
-              src="assets/img/projects/happy-cape-tours.png"
-              alt="Happy Cape Tours"
-              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-            <div class="absolute inset-0 z-10 p-4 sm:p-6 lg:p-8 flex flex-col justify-between">
-              <div class="flex justify-between items-start">
-                <div
-                  class="inline-block bg-brand/90 text-white px-2 sm:px-3 lg:px-4 py-1 sm:py-1.5 lg:py-2 rounded-full text-xs sm:text-sm font-medium backdrop-blur-sm">
-                  Website
-                </div>
-                <div class="flex gap-1.5 sm:gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:opacity-100">
-                  <a
-                    href="https://happycapetours.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-white/90 flex items-center justify-center hover:bg-white transition-colors"
-                    title="Visit Site">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-4 sm:h-5 w-4 sm:w-5 text-brand"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor">
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
-                  <a
-                    href="project_details.html"
-                    class="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-white/90 flex items-center justify-center hover:bg-white transition-colors"
-                    title="View Details">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-4 sm:h-5 w-4 sm:w-5 text-brand"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor">
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              
-              <div>
-                <h3 class="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-2 sm:mb-3">
-                  Happy Cape Tours
-                </h3>
-                <p class="text-white/80 sm:text-white/90 text-xs sm:text-sm lg:text-base mb-3 sm:mb-4 lg:mb-6 line-clamp-2 sm:line-clamp-none">
-                  Complete tour booking platform for Cape Town's premier tour operator with real-time availability and payment processing.
-                </p>
-                <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4 lg:mb-6">
-                  <span class="text-xs px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-white/20 text-white backdrop-blur-sm">Next.js</span>
-                  <span class="text-xs px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-white/20 text-white backdrop-blur-sm">Stripe</span>
-                  <span class="text-xs px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-white/20 text-white backdrop-blur-sm">PostgreSQL</span>
-                </div>
-                <a
-                  href="https://happycapetours.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center bg-brand hover:bg-brand/90 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl text-sm sm:text-base font-medium transition-all transform hover:scale-105">
-                  Visit Site
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 sm:h-5 w-4 sm:w-5 ml-1.5 sm:ml-2"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
+          </a>
         </div>
-
-        <!-- Project 5 - Detailed card with Visit Site -->
-        <div
-          class="project-card group relative rounded-2xl overflow-hidden bg-white shadow-lg animate-fade-in"
-          style="animation-delay: 0.6s">
-          <div class="relative h-64 sm:h-80 md:h-[450px] lg:h-[500px] overflow-hidden">
-            <img
-              src="assets/img/projects/atbestwecare.png"
-              alt="At Best We Care"
-              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-            <div class="absolute inset-0 z-10 p-4 sm:p-6 lg:p-8 flex flex-col justify-between">
-              <div class="flex justify-between items-start">
-                <div
-                  class="inline-block bg-brand/90 text-white px-2 sm:px-3 lg:px-4 py-1 sm:py-1.5 lg:py-2 rounded-full text-xs sm:text-sm font-medium backdrop-blur-sm">
-                  Website
-                </div>
-                <div class="flex gap-1.5 sm:gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:opacity-100">
-                  <a
-                    href="https://atbestwecareinc.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-white/90 flex items-center justify-center hover:bg-white transition-colors"
-                    title="Visit Site">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-4 sm:h-5 w-4 sm:w-5 text-brand"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor">
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
-                  <a
-                    href="project_details.html"
-                    class="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-white/90 flex items-center justify-center hover:bg-white transition-colors"
-                    title="View Details">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-4 sm:h-5 w-4 sm:w-5 text-brand"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor">
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              
-              <div>
-                <h3 class="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-2 sm:mb-3">
-                  At Best We Care
-                </h3>
-                <p class="text-white/80 sm:text-white/90 text-xs sm:text-sm lg:text-base mb-3 sm:mb-4 lg:mb-6 line-clamp-2 sm:line-clamp-none">
-                  Comprehensive immigration services platform helping individuals navigate their pathway to Canada with expert guidance.
-                </p>
-                <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4 lg:mb-6">
-                  <span class="text-xs px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-white/20 text-white backdrop-blur-sm">React</span>
-                  <span class="text-xs px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-white/20 text-white backdrop-blur-sm">Django</span>
-                  <span class="text-xs px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-white/20 text-white backdrop-blur-sm">AWS</span>
-                </div>
-                <a
-                  href="https://atbestwecare.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center bg-brand hover:bg-brand/90 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl text-sm sm:text-base font-medium transition-all transform hover:scale-105">
-                  Visit Site
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 sm:h-5 w-4 sm:w-5 ml-1.5 sm:ml-2"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </a>
-              </div>
-            </div>
+        <div class="flex flex-wrap items-start justify-between py-4 md:py-5 gap-4">
+          <div>
+            <h3 class="text-lg sm:text-xl lg:text-2xl font-semibold">
+              <a href="project_details.html" class="project-title-link">
+                Events Management System
+              </a>
+            </h3>
+            <p class="text-sm lg:text-base text-muted mt-1">Full Stack Application · Web App</p>
           </div>
-        </div>
-
-        <!-- Project 6 - Detailed card with Visit Site -->
-        <div
-          class="project-card group relative rounded-2xl overflow-hidden bg-white shadow-lg animate-fade-in"
-          style="animation-delay: 0.7s">
-          <div class="relative h-64 sm:h-80 md:h-[450px] lg:h-[500px] overflow-hidden">
-            <img
-              src="assets/img/projects/tawcon-projects.png"
-              alt="Tawcon Projects"
-              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-            <div class="absolute inset-0 z-10 p-4 sm:p-6 lg:p-8 flex flex-col justify-between">
-              <div class="flex justify-between items-start">
-                <div
-                  class="inline-block bg-brand/90 text-white px-2 sm:px-3 lg:px-4 py-1 sm:py-1.5 lg:py-2 rounded-full text-xs sm:text-sm font-medium backdrop-blur-sm">
-                  Website
-                </div>
-                <div class="flex gap-1.5 sm:gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:opacity-100">
-                  <a
-                    href="https://tawconprojects.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-white/90 flex items-center justify-center hover:bg-white transition-colors"
-                    title="Visit Site">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-4 sm:h-5 w-4 sm:w-5 text-brand"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor">
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
-                  <a
-                    href="project_details.html"
-                    class="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-white/90 flex items-center justify-center hover:bg-white transition-colors"
-                    title="View Details">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-4 sm:h-5 w-4 sm:w-5 text-brand"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor">
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              
-              <div>
-                <h3 class="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-2 sm:mb-3">
-                  Tawcon Projects
-                </h3>
-                <p class="text-white/80 sm:text-white/90 text-xs sm:text-sm lg:text-base mb-3 sm:mb-4 lg:mb-6 line-clamp-2 sm:line-clamp-none">
-                  Professional plumbing services website with service booking, portfolio showcase, and customer management system.
-                </p>
-                <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4 lg:mb-6">
-                  <span class="text-xs px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-white/20 text-white backdrop-blur-sm">WordPress</span>
-                  <span class="text-xs px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-white/20 text-white backdrop-blur-sm">PHP</span>
-                  <span class="text-xs px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-white/20 text-white backdrop-blur-sm">jQuery</span>
-                </div>
-                <a
-                  href="https://tawconprojects.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center bg-brand hover:bg-brand/90 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl text-sm sm:text-base font-medium transition-all transform hover:scale-105">
-                  Visit Site
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 sm:h-5 w-4 sm:w-5 ml-1.5 sm:ml-2"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
+          <a href="project_details.html" class="visit-link">
+            <span>Visit Site</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9.917 4.583-5.834 5.834m.584-5.834h5.25v5.25"></path>
+            </svg>
+          </a>
         </div>
       </div>
 
-      <!-- CTA section -->
-      <div class="text-center animate-fade-in px-4 sm:px-0" style="animation-delay: 0.9s">
-        <div class="frosted-glass rounded-2xl p-6 sm:p-8 lg:p-12 shadow-soft max-w-3xl mx-auto">
-          <h3 class="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4 gradient-text">
-            Have a project in mind?
-          </h3>
-          <p class="text-sm sm:text-base text-gray-600 max-w-xs sm:max-w-lg lg:max-w-2xl mx-auto mb-6 sm:mb-8">
-            Let's collaborate to create something extraordinary. I'm currently
-            available for select freelance projects.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-            <a
-              href="index.html#contact"
-              class="animated-gradient text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-medium inline-flex items-center justify-center text-sm sm:text-base hover:opacity-90 transition-opacity">
-              Get in Touch
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-4 sm:h-5 w-4 sm:w-5 ml-2"
-                viewBox="0 0 20 20"
-                fill="currentColor">
-                <path
-                  fill-rule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
-                  clip-rule="evenodd" />
-              </svg>
-            </a>
-            <a
-              href="mailto:hello@example.com"
-              class="frosted-glass px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-medium inline-flex items-center justify-center text-sm sm:text-base hover:bg-white/80 transition-colors">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-4 sm:h-5 w-4 sm:w-5 mr-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-              Email Me
-            </a>
+      <!-- Project 4: Happy Cape Tours -->
+      <div class="project-item p-4 sm:p-6 lg:p-8 animate-fade-in group" style="animation-delay: 0.35s">
+        <div class="image-wrapper">
+          <img
+            src="assets/img/projects/happy-cape-tours.png"
+            alt="Happy Cape Tours"
+            class="w-full h-full object-cover object-top"
+            loading="lazy" />
+          <a href="assets/img/projects/happy-cape-tours.png" 
+             class="zoom-button"
+             data-fancybox="gallery"
+             title="View larger image">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" class="h-5 w-5 sm:h-6 sm:w-6">
+              <path d="M10 4.167v11.666M4.167 10h11.666"></path>
+            </svg>
+          </a>
+        </div>
+        <div class="flex flex-wrap items-start justify-between py-4 md:py-5 gap-4">
+          <div>
+            <h3 class="text-lg sm:text-xl lg:text-2xl font-semibold">
+              <a href="https://happycapetours.com" target="_blank" rel="noopener noreferrer" class="project-title-link">
+                Happy Cape Tours
+              </a>
+            </h3>
+            <p class="text-sm lg:text-base text-muted mt-1">Complete tour booking platform with real-time availability · Next.js · Stripe</p>
           </div>
+          <a href="https://happycapetours.com" target="_blank" rel="noopener noreferrer" class="visit-link">
+            <span>Visit Site</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9.917 4.583-5.834 5.834m.584-5.834h5.25v5.25"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 5: At Best We Care -->
+      <div class="project-item p-4 sm:p-6 lg:p-8 animate-fade-in group" style="animation-delay: 0.4s">
+        <div class="image-wrapper">
+          <img
+            src="assets/img/projects/atbestwecare.png"
+            alt="At Best We Care"
+            class="w-full h-full object-cover object-top"
+            loading="lazy" />
+          <a href="assets/img/projects/atbestwecare.png" 
+             class="zoom-button"
+             data-fancybox="gallery"
+             title="View larger image">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" class="h-5 w-5 sm:h-6 sm:w-6">
+              <path d="M10 4.167v11.666M4.167 10h11.666"></path>
+            </svg>
+          </a>
+        </div>
+        <div class="flex flex-wrap items-start justify-between py-4 md:py-5 gap-4">
+          <div>
+            <h3 class="text-lg sm:text-xl lg:text-2xl font-semibold">
+              <a href="https://atbestwecareinc.com" target="_blank" rel="noopener noreferrer" class="project-title-link">
+                At Best We Care
+              </a>
+            </h3>
+            <p class="text-sm lg:text-base text-muted mt-1">Immigration services platform · React · Django · AWS</p>
+          </div>
+          <a href="https://atbestwecareinc.com" target="_blank" rel="noopener noreferrer" class="visit-link">
+            <span>Visit Site</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9.917 4.583-5.834 5.834m.584-5.834h5.25v5.25"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 6: Tawcon Projects -->
+      <div class="project-item p-4 sm:p-6 lg:p-8 animate-fade-in group" style="animation-delay: 0.45s">
+        <div class="image-wrapper">
+          <img
+            src="assets/img/projects/tawcon-projects.png"
+            alt="Tawcon Projects"
+            class="w-full h-full object-cover object-top"
+            loading="lazy" />
+          <a href="assets/img/projects/tawcon-projects.png" 
+             class="zoom-button"
+             data-fancybox="gallery"
+             title="View larger image">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" class="h-5 w-5 sm:h-6 sm:w-6">
+              <path d="M10 4.167v11.666M4.167 10h11.666"></path>
+            </svg>
+          </a>
+        </div>
+        <div class="flex flex-wrap items-start justify-between py-4 md:py-5 gap-4">
+          <div>
+            <h3 class="text-lg sm:text-xl lg:text-2xl font-semibold">
+              <a href="https://tawconprojects.com" target="_blank" rel="noopener noreferrer" class="project-title-link">
+                Tawcon Projects
+              </a>
+            </h3>
+            <p class="text-sm lg:text-base text-muted mt-1">Professional plumbing services · WordPress · PHP · jQuery</p>
+          </div>
+          <a href="https://tawconprojects.com" target="_blank" rel="noopener noreferrer" class="visit-link">
+            <span>Visit Site</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9.917 4.583-5.834 5.834m.584-5.834h5.25v5.25"></path>
+            </svg>
+          </a>
         </div>
       </div>
     </div>
-  </body>
+
+    <!-- CTA Section with infinite scroll text like inspiration -->
+    <div class="mt-10 lg:mt-14">
+      <div class="group flex gap-6 overflow-hidden rounded-xl bg-light p-5 sm:p-6">
+        <!-- First set of scrolling text -->
+        <div class="relative flex min-w-full shrink-0 animate-infinite-scroll gap-6 group-hover:[animation-play-state:paused]">
+          <a href="index.html#contact" class="relative inline-block whitespace-nowrap text-2xl sm:text-3xl md:text-[40px] font-medium text-muted transition before:mr-3 before:content-['•'] hover:text-dark">
+            Let's 👋 Work Together
+          </a>
+          <a href="index.html#contact" class="relative inline-block whitespace-nowrap text-2xl sm:text-3xl md:text-[40px] font-medium text-muted transition before:mr-3 before:content-['•'] hover:text-dark">
+            Let's 👋 Work Together
+          </a>
+          <a href="index.html#contact" class="relative inline-block whitespace-nowrap text-2xl sm:text-3xl md:text-[40px] font-medium text-muted transition before:mr-3 before:content-['•'] hover:text-dark">
+            Let's 👋 Work Together
+          </a>
+        </div>
+        <!-- Duplicate set for seamless loop -->
+        <div class="relative flex min-w-full shrink-0 animate-infinite-scroll gap-6 group-hover:[animation-play-state:paused]">
+          <a href="index.html#contact" class="relative inline-block whitespace-nowrap text-2xl sm:text-3xl md:text-[40px] font-medium text-muted transition before:mr-3 before:content-['•'] hover:text-dark">
+            Let's 👋 Work Together
+          </a>
+          <a href="index.html#contact" class="relative inline-block whitespace-nowrap text-2xl sm:text-3xl md:text-[40px] font-medium text-muted transition before:mr-3 before:content-['•'] hover:text-dark">
+            Let's 👋 Work Together
+          </a>
+          <a href="index.html#contact" class="relative inline-block whitespace-nowrap text-2xl sm:text-3xl md:text-[40px] font-medium text-muted transition before:mr-3 before:content-['•'] hover:text-dark">
+            Let's 👋 Work Together
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer contact buttons -->
+    <div class="text-center mt-14 sm:mt-20 animate-fade-in" style="animation-delay: 0.7s">
+      <div class="bg-light rounded-2xl p-6 sm:p-8 lg:p-10 max-w-2xl mx-auto">
+        <h3 class="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 gradient-text">
+          Have a project in mind?
+        </h3>
+        <p class="text-sm sm:text-base text-muted max-w-lg mx-auto mb-6 sm:mb-8">
+          Let's collaborate to create something extraordinary. I'm currently available for select freelance projects.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+          <a
+            href="index.html#contact"
+            class="bg-brand hover:bg-brand/90 text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-medium inline-flex items-center justify-center text-sm sm:text-base transition-colors">
+            Get in Touch
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 sm:h-5 w-4 sm:w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd" />
+            </svg>
+          </a>
+          <a
+            href="mailto:hello@example.com"
+            class="bg-white text-dark hover:text-brand px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-medium inline-flex items-center justify-center text-sm sm:text-base transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 sm:h-5 w-4 sm:w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            Email Me
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
 </html>

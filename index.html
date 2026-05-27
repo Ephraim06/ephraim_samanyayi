@@ -1,1327 +1,1037 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-W7G61MLMT4"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
 
-      gtag('config', 'G-W7G61MLMT4');
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="assets/favicon_io/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="assets/favicon_io/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="assets/favicon_io/favicon-16x16.png"
-    />
-    <link rel="manifest" href="/assets/favicon_io/site.webmanifest" />
-    <title>Ephraim Samanyayi | Web Developer</title>
-    <!-- CSS Stylesheets -->
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="assets/css/mobile.css" />
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Bootstrap CDN -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
-      crossorigin="anonymous"
-    />
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <!-- Animate.css -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
-  </head>
-  <body id="home">
-    <!-- MacOS-style Dock Navigation -->
-    <nav class="dock">
-      <div class="dock-container">
-        <a href="#home" class="dock-item">
-          <i class="fas fa-home"></i>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png" />
+  <link rel="manifest" href="/assets/favicon_io/site.webmanifest" />
+  <title>Ephraim Samanyayi | Application Support Engineer</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: '#1d1d1f',
+            'accent-light': '#333336',
+            surface: '#f5f5f7',
+            'surface-dark': '#e8e8ed',
+            muted: '#86868b',
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.6s ease-out',
+            'slide-up': 'slideUp 0.5s ease-out',
+            'scale-in': 'scaleIn 0.4s ease-out',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            slideUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            scaleIn: {
+              '0%': { opacity: '0', transform: 'scale(0.95)' },
+              '100%': { opacity: '1', transform: 'scale(1)' },
+            },
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --accent: #1d1d1f;
+      --surface: #f5f5f7;
+      --muted: #86868b;
+      --border: #e5e5ea;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #ffffff;
+      color: #1d1d1f;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Subtle dot pattern background */
+    .bg-pattern {
+      background-image: radial-gradient(#e5e5ea 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    /* Glass card - subtle */
+    .card {
+      background: #ffffff;
+      border: 1px solid #e5e5ea;
+      border-radius: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: #d1d1d6;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+      transform: translateY(-2px);
+    }
+
+    /* Section title */
+    .section-eyebrow {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #86868b;
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: #1d1d1f;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+
+    /* Dock navigation */
+    .dock {
+      position: fixed;
+      bottom: clamp(12px, 2vw, 20px);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      display: flex;
+      gap: 4px;
+      padding: 6px 12px;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 20px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .dock-item {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      color: #86868b;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      font-size: 16px;
+      position: relative;
+    }
+
+    .dock-item:hover,
+    .dock-item:focus-visible {
+      color: #1d1d1f;
+      background: rgba(0, 0, 0, 0.04);
+      transform: translateY(-6px);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 20px 60px;
+    }
+
+    .profile-ring {
+      width: clamp(120px, 20vw, 160px);
+      height: clamp(120px, 20vw, 160px);
+      border-radius: 50%;
+      padding: 3px;
+      background: #e5e5ea;
+    }
+
+    .profile-ring img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid white;
+    }
+
+    /* Project cards */
+    .project-card {
+      background: #ffffff;
+      border: 1px solid #e5e5ea;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.35s ease;
+    }
+
+    .project-card:hover {
+      border-color: #d1d1d6;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      transform: translateY(-4px);
+    }
+
+    .project-img-wrap {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16 / 11;
+      background: #f5f5f7;
+    }
+
+    .project-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover .project-img-wrap img {
+      transform: scale(1.04);
+    }
+
+    .zoom-btn {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(0.8);
+      width: 44px;
+      height: 44px;
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1d1d1f;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      z-index: 5;
+    }
+
+    .project-img-wrap:hover .zoom-btn {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .zoom-btn:hover {
+      background: #1d1d1f;
+      color: #ffffff;
+    }
+
+    /* Tag pill */
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      background: #f5f5f7;
+      color: #1d1d1f;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    /* Hidden projects */
+    .hidden-projects-wrap {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.5s ease;
+    }
+
+    .hidden-projects-wrap.expanded {
+      grid-template-rows: 1fr;
+    }
+
+    .hidden-projects-inner {
+      overflow: hidden;
+    }
+
+    /* Buttons */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: #1d1d1f;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      background: #333336;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: #ffffff;
+      color: #1d1d1f;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      border: 1px solid #e5e5ea;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-secondary:hover {
+      background: #f5f5f7;
+      border-color: #d1d1d6;
+      transform: translateY(-2px);
+    }
+
+    .btn-view-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      background: #ffffff;
+      border: 1px solid #e5e5ea;
+      color: #1d1d1f;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-view-more:hover {
+      background: #f5f5f7;
+      border-color: #d1d1d6;
+      transform: translateY(-2px);
+    }
+
+    .btn-view-more .arrow-icon {
+      transition: transform 0.3s ease;
+    }
+
+    .btn-view-more.expanded .arrow-icon {
+      transform: rotate(180deg);
+    }
+
+    /* Form inputs */
+    .input-field {
+      width: 100%;
+      padding: 12px 16px;
+      background: #f5f5f7;
+      border: 1px solid #e5e5ea;
+      border-radius: 10px;
+      font-size: 0.9375rem;
+      font-family: inherit;
+      transition: all 0.3s ease;
+      outline: none;
+      color: #1d1d1f;
+    }
+
+    .input-field:focus {
+      border-color: #1d1d1f;
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.04);
+    }
+
+    .input-field::placeholder {
+      color: #aeaeb2;
+    }
+
+    textarea.input-field {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    /* Footer */
+    .site-footer {
+      background: #1d1d1f;
+      color: #ffffff;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #d1d1d6;
+      border-radius: 3px;
+    }
+
+    /* Touch devices */
+    @media (hover: none) and (pointer: coarse) {
+      .zoom-btn {
+        opacity: 0.7;
+        visibility: visible;
+        transform: translate(-50%, -50%) scale(0.85);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .dock {
+        gap: 0;
+        padding: 4px 8px;
+        border-radius: 16px;
+      }
+
+      .dock-item {
+        width: 36px;
+        height: 36px;
+        border-radius: 12px;
+        font-size: 14px;
+      }
+
+      .project-img-wrap {
+        aspect-ratio: 4 / 3;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==================== DOCK NAVIGATION ==================== -->
+  <nav class="dock" role="navigation" aria-label="Main navigation">
+    <a href="#home" class="dock-item" title="Home" aria-label="Home"><i class="fas fa-house"></i></a>
+    <a href="#about" class="dock-item" title="About" aria-label="About"><i class="fas fa-user"></i></a>
+    <a href="#experience" class="dock-item" title="Experience" aria-label="Experience"><i
+        class="fas fa-briefcase"></i></a>
+    <a href="#skills" class="dock-item" title="Skills" aria-label="Skills"><i class="fas fa-code"></i></a>
+    <a href="#projects" class="dock-item" title="Projects" aria-label="Projects"><i class="fas fa-folder-open"></i></a>
+    <a href="#contact" class="dock-item" title="Contact" aria-label="Contact"><i class="fas fa-envelope"></i></a>
+  </nav>
+
+  <!-- ==================== HERO ==================== -->
+  <header id="home" class="hero bg-pattern">
+    <div class="text-center max-w-2xl mx-auto px-4">
+      <div class="profile-ring mx-auto mb-6 animate-scale-in">
+        <img src="assets/img/people/ephraim_bark.jpg" alt="Ephraim Samanyayi" loading="eager" />
+      </div>
+
+      <div class="animate-slide-up" style="animation-delay: 0.1s;">
+        <span
+          class="inline-flex items-center gap-2 px-4 py-1.5 bg-surface rounded-full text-sm font-medium text-muted mb-4">
+          <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+          Open to Remote Opportunities
+        </span>
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight animate-slide-up"
+        style="animation-delay: 0.15s;">
+        Ephraim Samanyayi
+      </h1>
+
+      <p class="text-lg sm:text-xl text-muted mt-3 animate-slide-up" style="animation-delay: 0.2s;">
+        Web Developer
+      </p>
+
+      <p class="text-sm sm:text-base text-muted mt-2 max-w-md mx-auto animate-slide-up" style="animation-delay: 0.25s;">
+        SaaS · Automation · Systems Testing
+      </p>
+
+      <p class="text-sm text-muted mt-1 animate-slide-up" style="animation-delay: 0.3s;">
+        Western Cape, South Africa
+      </p>
+
+      <div class="flex flex-wrap gap-3 justify-center mt-8 animate-slide-up" style="animation-delay: 0.35s;">
+        <a href="#projects" class="btn-primary">
+          <i class="fas fa-arrow-down text-sm"></i> View My Work
         </a>
-        <a href="#about" class="dock-item">
-          <i class="fas fa-user"></i>
-        </a>
-        <a href="#experience" class="dock-item">
-          <i class="fas fa-briefcase"></i>
-        </a>
-        <a href="#skills" class="dock-item">
-          <i class="fas fa-code"></i>
-        </a>
-        <a href="#projects" class="dock-item">
-          <i class="fas fa-folder"></i>
-        </a>
-
-        <a href="#contact" class="dock-item">
-          <i class="fas fa-envelope"></i>
+        <a href="#contact" class="btn-secondary">
+          <i class="fas fa-envelope text-sm"></i> Get In Touch
         </a>
       </div>
-    </nav>
+    </div>
+  </header>
 
-    <!-- Hero Section with MacOS Big Sur style -->
-    <header class="hero">
-      <div class="hero-content">
-        <div class="profile-image-container">
-          <img
-            src="assets/img/people/ephraim_bark.jpg"
-            alt="Ephraim Samanyayi"
-            class="profile-image"
-          />
-          <div class="profile-image-border"></div>
-        </div>
-        <h1 class="hero-title">Ephraim Samanyayi</h1>
-        <p class="hero-subtitle">Web Developer</p>
-        <!-- <div class="hero-buttons">
-          <a href="#projects" class="hero-btn">View My Work</a>
-          <a href="#contact" class="hero-btn-2">Contact Me</a>
-        </div> -->
+  <!-- ==================== ABOUT ==================== -->
+  <section id="about" class="py-16 sm:py-20 md:py-24 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="section-eyebrow mb-2">About</p>
+      <h2 class="section-title mb-6">Professional Summary</h2>
+      <div class="card p-6 sm:p-8 md:p-10 text-left">
+        <p class="text-sm sm:text-base text-muted leading-relaxed">
+
+          Hi, I'm Ephraim, a Web Developer with a passion for building modern, user-focused applications. I have
+          experience working with React, JavaScript, PHP, and Laravel, creating solutions that help businesses
+          streamline processes and improve efficiency. Whether developing new features, solving technical challenges, or
+          learning new technologies, I enjoy finding practical solutions through code.
+        </p>
       </div>
-      <div class="hero-background"></div>
-    </header>
+    </div>
+  </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-16 bg-white">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Header -->
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-gray-800">About Me</h2>
-          <div
-            style="background-color: #0071e3"
-            class="w-20 h-1 mx-auto mt-3 rounded-full"
-          ></div>
-        </div>
-
-        <!-- Content Grid -->
-        <div class="items-centre">
-          <!-- Text Content -->
-          <div class="space-y-6">
-            <p class="text-gray-600 text-lg leading-relaxed">
-              Passionate Full Stack Developer & Application Support Engineer with 4 years of experience in 10+ technologies so far.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="py-16 bg-white">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Section Header -->
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-            Professional Experience
-          </h2>
-          <div
-            class="w-20 h-1 bg-gradient-to-r from-blue-500 to-blue-300 mx-auto rounded-full"
-          ></div>
-        </div>
-
-        <!-- Experience Timeline -->
-        <div class="space-y-8">
-          <!-- Experience Item 1 -->
-          <div class="experience-card group flex flex-col md:flex-row">
-            <div class="md:w-1/4 mb-4 md:mb-0">
-              <div class="date-badge p-1 rounded bg-blue-50 text-blue-600">
-                Apr 2015 – Feb 2016
-              </div>
-            </div>
-            <div class="md:w-3/4">
-              <div
-                class="experience-content bg-gray-50 rounded-xl p-6 transition-all duration-300 group-hover:bg-white group-hover:shadow-md"
-              >
-                <h3 class="ml-2 text-xl font-bold text-gray-800 mb-1">
-                  Executive Assistant / Office Administrator
-                </h3>
-                <h4 class="ml-2 text-md text-blue-600 mb-3">
-                  Lew Geffen Sotheby's International Realty
-                </h4>
-                <p class="ml-2 text-gray-600 text-sm mb-4">
-                  Provided comprehensive administrative and personal assistance
-                  to a top-performing real estate agent, managing all aspects of
-                  their professional operations.
-                </p>
-                <div class="ml-2 flex flex-wrap gap-2 mb-4">
-                  <span class="tech-tag bg-blue-100 text-blue-800"
-                    >Calendar Management</span
-                  >
-                  <span class="tech-tag bg-blue-100 text-blue-800"
-                    >Client Relations</span
-                  >
-                  <span class="tech-tag bg-blue-100 text-blue-800"
-                    >Document Preparation</span
-                  >
-                  <span class="tech-tag bg-blue-100 text-blue-800"
-                    >Travel Coordination</span
-                  >
-                  <span class="tech-tag bg-blue-100 text-blue-800"
-                    >CRM Management</span
-                  >
-                  <span class="tech-tag bg-blue-100 text-blue-800"
-                    >Cold Calling</span
-                  >
-                  <span class="tech-tag bg-blue-100 text-blue-800"
-                    >Property Marketing</span
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Experience Item 2 -->
-          <div class="experience-card group flex flex-col md:flex-row">
-            <div class="md:w-1/4 mb-4 md:mb-0">
-              <div class="date-badge p-1 rounded bg-blue-50 text-blue-600">
-                Apr 2016 – Feb 2019
-              </div>
-            </div>
-            <div class="md:w-3/4">
-              <div
-                class="experience-content bg-gray-50 rounded-xl p-6 transition-all duration-300 group-hover:bg-white group-hover:shadow-md"
-              >
-                <h3 class="ml-2 text-xl font-bold text-gray-800 mb-1">
-                  IT Support Specialist & Software Trainer
-                </h3>
-                <h4 class="ml-2 text-md text-blue-600 mb-3">
-                  RE/MAX Property Associates
-                </h4>
-                <p class="ml-2 text-gray-600 text-sm mb-4">
-                  Delivered technical training and support for real estate
-                  professionals while providing executive assistance to multiple
-                  agents.
-                </p>
-                <div class="ml-2 flex flex-wrap gap-2 mb-4">
-                  <span class="tech-tag bg-purple-100 text-purple-800"
-                    >Software Training</span
-                  >
-                  <span class="tech-tag bg-purple-100 text-purple-800"
-                    >Technical Support</span
-                  >
-                  <span class="tech-tag bg-purple-100 text-purple-800"
-                    >CRM Systems</span
-                  >
-                  <span class="tech-tag bg-purple-100 text-purple-800"
-                    >Freshdesk</span
-                  >
-                  <span class="tech-tag bg-purple-100 text-purple-800"
-                    >Data Migration</span
-                  >
-                  <span class="tech-tag bg-purple-100 text-purple-800"
-                    >Troubleshooting</span
-                  >
-                  <span class="tech-tag bg-purple-100 text-purple-800"
-                    >E-Learning</span
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Experience Item 3 -->
-          <div class="experience-card group flex flex-col md:flex-row">
-            <div class="md:w-1/4 mb-4 md:mb-0">
-              <div class="date-badge p-1 rounded bg-blue-50 text-blue-600">
-                Feb 2019 – Present
-              </div>
-            </div>
-            <div class="md:w-3/4">
-              <div
-                class="experience-content bg-gray-50 rounded-xl p-6 transition-all duration-300 group-hover:bg-white group-hover:shadow-md"
-              >
-                <h3 class="ml-2 text-xl font-bold text-gray-800 mb-1">
-                  Senior Software Trainer & IT Support Specialist
-                </h3>
-                <h4 class="ml-2 text-md text-blue-600 mb-3">
-                  RE/MAX of Southern Africa
-                </h4>
-                <p class="ml-2 text-gray-600 text-sm mb-4">
-                  Lead technical training and support for proprietary real
-                  estate platforms serving 3,000+ agents across Southern Africa.
-                </p>
-                <div class="ml-2 flex flex-wrap gap-2 mb-4">
-                  <span class="tech-tag bg-green-100 text-green-800"
-                    >Technical Training</span
-                  >
-                  <span class="tech-tag bg-green-100 text-green-800"
-                    >Zoom/Livestorm</span
-                  >
-                  <span class="tech-tag bg-green-100 text-green-800"
-                    >Documentation</span
-                  >
-                  <span class="tech-tag bg-green-100 text-green-800"
-                    >JavaScript Automation</span
-                  >
-                  <span class="tech-tag bg-green-100 text-green-800"
-                    >Freshdesk/Jira</span
-                  >
-                  <span class="tech-tag bg-green-100 text-green-800"
-                    >User Adoption</span
-                  >
-                  <span class="tech-tag bg-green-100 text-green-800"
-                    >QA Testing</span
-                  >
-                  <span class="tech-tag bg-green-100 text-green-800"
-                    >Remote Support</span
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Education Section -->
-          <div class="pt-8">
-            <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">
-              Certifications & Skills
-            </h3>
-
-            <!-- Certifications Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <!-- Certification 1 -->
-              <a
-                href="https://www.udemy.com/certificate/UC-3d1fe6c0-6138-48fd-9fa7-bcb0d956a6b4"
-                target="_blank"
-                class="certification-card p-1 rounded group"
-              >
-                <div
-                  class="certification-badge p-1 rounded bg-blue-100 text-blue-600"
-                >
-                  <i class="fas fa-certificate"></i>
-                </div>
-                <div>
-                  <h4
-                    class="font-semibold text-gray-800 group-hover:text-blue-600 transition-colors"
-                  >
-                    PHP with Laravel for Beginners
-                  </h4>
-                  <p class="text-sm text-gray-500">Udemy • Apr 2025</p>
-                </div>
-                <i
-                  class="fas fa-external-link-alt ml-auto text-gray-400 group-hover:text-blue-500 transition-colors"
-                ></i>
-              </a>
-
-              <!-- Certification 2 -->
-              <a
-                href="https://www.udemy.com/certificate/UC-d1c3fdd2-d1d1-4635-9af1-509928c38aba"
-                target="_blank"
-                class="certification-card p-1 rounded group"
-              >
-                <div
-                  class="certification-badge p-1 rounded bg-indigo-100 text-indigo-600"
-                >
-                  <i class="fas fa-certificate"></i>
-                </div>
-                <div>
-                  <h4
-                    class="font-semibold text-gray-800 group-hover:text-indigo-600 transition-colors"
-                  >
-                    Web Development Bootcamp
-                  </h4>
-                  <p class="text-sm text-gray-500">Udemy • Apr 2025</p>
-                </div>
-                <i
-                  class="fas fa-external-link-alt ml-auto text-gray-400 group-hover:text-indigo-500 transition-colors"
-                ></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <style>
-      .experience-card {
-        position: relative;
-      }
-
-      .experience-card:not(:last-child):after {
-        content: '';
-        position: absolute;
-        left: 1.25rem;
-        top: 2.5rem;
-        bottom: -2.5rem;
-        width: 2px;
-        background: linear-gradient(to bottom, #3b82f6, #e5e7eb);
-      }
-
-      .date-badge {
-        @apply inline-block px-4 py-2 rounded-full text-sm font-medium;
-        box-shadow: 0 2px 4px rgba(59, 130, 246, 0.1);
-      }
-
-      .tech-tag {
-        @apply px-3 py-1 text-xs font-medium rounded-full bg-white border border-gray-200;
-      }
-
-      .certification-card {
-        @apply flex items-center p-4 bg-white rounded-xl border border-gray-200 hover:border-blue-200 transition-all duration-300;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-      }
-
-      .certification-card:hover {
-        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
-        transform: translateY(-2px);
-      }
-
-      .certification-badge {
-        @apply w-10 h-10 rounded-full flex items-center justify-center mr-4;
-      }
-
-      .skill-pill {
-        @apply px-4 py-2 rounded-full text-sm font-medium;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-      }
-    </style>
-
-    <!-- Skills Section with iOS-style rounded cards -->
-    <section id="skills" class="py-16 px-4 max-w-6xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-800">My Skills</h2>
-        <div class="w-24 h-1 bg-blue-500 mx-auto mt-2"></div>
+  <!-- ==================== EXPERIENCE ==================== -->
+  <section id="experience" class="py-16 sm:py-20 md:py-24 px-4 bg-surface">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-10 sm:mb-14">
+        <p class="section-eyebrow mb-2">Career</p>
+        <h2 class="section-title">Work Experience</h2>
       </div>
 
-      <div
-        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"
-      >
-        <!-- React -->
-        <div class="text-center">
-          <div
-            class="grid place-content-center rounded-lg bg-blue-50 p-4 hover:-translate-y-1 hover:scale-105 hover:shadow-md transition"
-          >
-            <img
-              class="h-10 mx-auto"
-              src="https://cdn.simpleicons.org/react/61DAFB"
-              alt="React"
-            />
+      <div class="space-y-4">
+        <!-- Experience 1 -->
+        <div class="card p-5 sm:p-6 animate-slide-up" style="animation-delay: 0.1s;">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+            <div>
+              <h3 class="font-semibold text-base sm:text-lg">Freelance Web Developer</h3>
+              <p class="text-sm text-muted">Self-Employed</p>
+            </div>
+            <span class="text-xs font-medium text-muted bg-surface px-3 py-1 rounded-full whitespace-nowrap self-start">
+              2022 – Present
+            </span>
           </div>
-          <p class="mt-2 text-sm font-medium text-gray-800 dark:text-white">
-            React
+
+          <p class="text-sm text-muted">
+            Freelance Web Developer specializing in modern, responsive websites and custom web applications.
+            Over the years, I have partnered with businesses and individuals to transform ideas into functional
+            digital products using React, JavaScript, PHP, Laravel, Tailwind CSS, and MySQL. My work includes
+            business websites, management systems, API integrations, performance optimization, and custom
+            software solutions. I focus on writing clean, maintainable code and delivering intuitive user
+            experiences that help clients achieve their goals.
           </p>
         </div>
 
-        <!-- JavaScript -->
-        <div class="text-center">
-          <div
-            class="grid place-content-center rounded-lg bg-yellow-50 p-4 hover:-translate-y-1 hover:scale-105 hover:shadow-md transition"
-          >
-            <img
-              class="h-10 mx-auto"
-              src="https://cdn.simpleicons.org/javascript/F7DF1E"
-              alt="JavaScript"
-            />
+        <!-- Experience 2 -->
+        <div class="card p-5 sm:p-6 animate-slide-up" style="animation-delay: 0.1s;">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+            <div>
+              <h3 class="font-semibold text-base sm:text-lg">Application Support Engineer & Software Trainer</h3>
+              <p class="text-sm text-muted">REMAX of Southern Africa (HQ)</p>
+            </div>
+            <span
+              class="text-xs font-medium text-muted bg-surface px-3 py-1 rounded-full whitespace-nowrap self-start">2019
+              – Present</span>
           </div>
-          <p class="mt-2 text-sm font-medium text-gray-800 dark:text-white">
-            JavaScript
+          <p class="text-sm text-muted space-y-1.5 list-disc list-inside">
+            Application Support Engineer and Software Trainer with 6+ years of experience helping thousands of
+            users maximize the value of enterprise software platforms. Specializing in technical support,
+            troubleshooting, software training, knowledge base management, user documentation, feature
+            communication, and promotional video creation. Partner closely with development teams to resolve
+            issues, improve workflows, test new functionality, and deliver clear educational content that
+            enhances user experience and platform adoption.
           </p>
         </div>
 
-        <!-- HTML5 -->
-        <div class="text-center">
-          <div
-            class="grid place-content-center rounded-lg bg-orange-50 p-4 hover:-translate-y-1 hover:scale-105 hover:shadow-md transition"
-          >
-            <img
-              class="h-10 mx-auto"
-              src="https://cdn.simpleicons.org/html5/E34F26"
-              alt="HTML5"
-            />
+        <!-- Experience 3 -->
+        <div class="card p-5 sm:p-6 animate-slide-up" style="animation-delay: 0.2s;">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+            <div>
+              <h3 class="font-semibold text-base sm:text-lg">Software Training Administrator / IT Support</h3>
+              <p class="text-sm text-muted">REMAX Property Associates – Cape Town</p>
+            </div>
+            <span
+              class="text-xs font-medium text-muted bg-surface px-3 py-1 rounded-full whitespace-nowrap self-start">2016
+              – 2019</span>
           </div>
-          <p class="mt-2 text-sm font-medium text-gray-800 dark:text-white">
-            HTML5
-          </p>
-        </div>
-
-        <!-- CSS3 -->
-        <div class="text-center">
-          <div
-            class="grid place-content-center rounded-lg bg-blue-50 p-4 hover:-translate-y-1 hover:scale-105 hover:shadow-md transition"
-          >
-            <img
-              class="h-10 mx-auto"
-              src="https://img.icons8.com/color/512/css3.png"
-              alt="CSS3"
-            />
-          </div>
-          <p class="mt-2 text-sm font-medium text-gray-800 dark:text-white">
-            CSS3
-          </p>
-        </div>
-
-        <!-- Laravel -->
-        <div class="text-center">
-          <div
-            class="grid place-content-center rounded-lg bg-red-50 p-4 hover:-translate-y-1 hover:scale-105 hover:shadow-md transition"
-          >
-            <img
-              class="h-10 mx-auto"
-              src="https://cdn.simpleicons.org/laravel/FF2D20"
-              alt="Laravel"
-            />
-          </div>
-          <p class="mt-2 text-sm font-medium text-gray-800 dark:text-white">
-            Laravel
-          </p>
-        </div>
-
-        <!-- MySQL -->
-        <div class="text-center">
-          <div
-            class="grid place-content-center rounded-lg bg-green-50 p-4 hover:-translate-y-1 hover:scale-105 hover:shadow-md transition"
-          >
-            <img
-              class="h-10 mx-auto"
-              src="https://cdn.simpleicons.org/mysql/4479A1"
-              alt="MySQL"
-            />
-          </div>
-          <p class="mt-2 text-sm font-medium text-gray-800 dark:text-white">
-            MySQL
-          </p>
-        </div>
-
-        <!-- PHP -->
-        <div class="text-center">
-          <div
-            class="grid place-content-center rounded-lg bg-gray-100 p-4 hover:-translate-y-1 hover:scale-105 hover:shadow-md transition"
-          >
-            <img
-              class="h-10 mx-auto"
-              src="https://cdn.simpleicons.org/php/777BB4"
-              alt="PHP"
-            />
-          </div>
-          <p class="mt-2 text-sm font-medium text-gray-800 dark:text-white">
-            PHP
-          </p>
-        </div>
-
-        <!-- Tailwind CSS -->
-        <div class="text-center">
-          <div
-            class="grid place-content-center rounded-lg bg-cyan-50 p-4 hover:-translate-y-1 hover:scale-105 hover:shadow-md transition"
-          >
-            <img
-              class="h-10 mx-auto"
-              src="https://cdn.simpleicons.org/tailwindcss/06B6D4"
-              alt="Tailwind CSS"
-            />
-          </div>
-          <p class="mt-2 text-sm font-medium text-gray-800 dark:text-white">
-            Tailwind
-          </p>
-        </div>
-
-        <!-- Material UI -->
-        <div class="text-center">
-          <div
-            class="grid place-content-center rounded-lg bg-blue-50 p-4 hover:-translate-y-1 hover:scale-105 hover:shadow-md transition"
-          >
-            <img
-              class="h-10 mx-auto"
-              src="https://cdn.simpleicons.org/mui/007FFF"
-              alt="Material UI"
-            />
-          </div>
-          <p class="mt-2 text-sm font-medium text-gray-800 dark:text-white">
-            Material UI
+          <p class="text-sm text-muted space-y-1.5 list-disc list-inside">
+            Provided software training and IT support for a busy real estate office with 150+ agents, onboarding new agents and
+  helping existing users maximize the use of CRM and business systems. Responsible for technical
+  troubleshooting, email and software setup, data migration, backups, user administration, and
+  creating training materials and documentation. Played a key role in improving user confidence,
+  system adoption, and day-to-day operational efficiency.
           </p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Projects Section with Enhanced MacOS-style cards -->
-    <section id="projects" class="py-20 bg-gray-50">
-      <div class="container mx-auto px-6 max-w-6xl">
-        <div class="text-center mb-16">
-          <h2 class="text-4xl font-bold text-gray-900 mb-4">
-            Featured Projects
-          </h2>
-          <div
-            class="w-24 h-1.5 bg-gradient-to-r from-blue-500 to-blue-300 mx-auto rounded-full mb-6"
-          ></div>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            Selected works showcasing my expertise in real estate technology
-            solutions
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Project 1: Luxury Property Website -->
-          <a href="beiramar-blouberg.html">
-            <div
-              class="project-card group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-blue-100"
-            >
-              <div class="relative overflow-hidden h-60">
-                <img
-                  src="assets/img/projects/Beiramar.jpg"
-                  alt="Beiramar"
-                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div
-                  class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6"
-                ></div>
-              </div>
-              <div class="p-6">
-                <h3
-                  class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors"
-                >
-                  Beiramar-Blouberg
-                </h3>
-                <p class="text-gray-600 mb-4 line-clamp-3">
-                  Luxury beachfront apartment development website with property
-                  showcases, floor plans, and lifestyle content. Built with
-                  mobile-first responsive design for optimal viewing across
-                  devices.
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  <span
-                    class="px-3 py-1 bg-blue-50 text-blue-600 text-xs font-medium rounded-full"
-                    >HTML</span
-                  >
-                  <span
-                    class="px-3 py-1 bg-blue-50 text-blue-600 text-xs font-medium rounded-full"
-                    >CSS</span
-                  >
-                  <span
-                    class="px-3 py-1 bg-blue-50 text-blue-600 text-xs font-medium rounded-full"
-                    >JS</span
-                  >
-                </div>
-              </div>
-            </div>
-          </a>
-          <!-- Project 2: Property Management System -->
-          <a href="albus_waveside_villa.html">
-            <div
-              class="project-card group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-blue-100"
-            >
-              <div class="relative overflow-hidden h-60">
-                <img
-                  src="assets/img/projects/Albus-waveside-villa.jpg"
-                  alt="Albus Waveside Villa"
-                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div
-                  class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6"
-                ></div>
-              </div>
-              <div class="p-6">
-                <h3
-                  class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors"
-                >
-                  Albus Waveside Villa
-                </h3>
-                <p class="text-gray-600 mb-4 line-clamp-3">
-                  A premium property website for Sunset Beach's exclusive
-                  development, designed to attract high-net-worth buyers with
-                  cinematic visuals and seamless user experience.
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  <span
-                    class="px-3 py-1 bg-blue-50 text-blue-600 text-xs font-medium rounded-full"
-                    >HTML</span
-                  >
-                  <span
-                    class="px-3 py-1 bg-blue-50 text-blue-600 text-xs font-medium rounded-full"
-                    >JS</span
-                  >
-                  <span
-                    class="px-3 py-1 bg-blue-50 text-blue-600 text-xs font-medium rounded-full"
-                    >Tailwind CSS</span
-                  >
-                </div>
-              </div>
-            </div>
-          </a>
-
-          <!-- Project 3: Event Management System -->
-          <a href="project_details.html">
-            <div
-              class="project-card group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-blue-100"
-            >
-              <div class="relative overflow-hidden h-60">
-                <img
-                  src="assets/img/projects/events-management-app.jpg"
-                  alt="EventPilot"
-                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div
-                  class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6"
-                ></div>
-              </div>
-              <div class="p-6">
-                <h3
-                  class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors"
-                >
-                  Event Management System
-                </h3>
-                <p class="text-gray-600 mb-4 line-clamp-3">
-                  End-to-end event management platform with CRM integration,
-                  registration workflows, and task automation for property
-                  showcase events and open houses.
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  <span
-                    class="px-3 py-1 bg-blue-50 text-blue-600 text-xs font-medium rounded-full"
-                    >React</span
-                  >
-                  <span
-                    class="px-3 py-1 bg-blue-50 text-blue-600 text-xs font-medium rounded-full"
-                    >Laravel</span
-                  >
-                  <span
-                    class="px-3 py-1 bg-blue-50 text-blue-600 text-xs font-medium rounded-full"
-                    >Tailwind CSS</span
-                  >
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <div class="text-center mt-12">
-          <a
-            href="projects.html"
-            class="inline-flex items-center px-6 py-3 border border-blue-600 text-blue-600 font-medium rounded-lg transition-all hover:bg-blue-50 hover:shadow-sm hover:border-blue-700 hover:text-blue-700"
-          >
-            View All Projects
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-4 w-4 ml-1.5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </a>
-        </div>
+  <!-- ==================== SKILLS ==================== -->
+  <section id="skills" class="py-16 sm:py-20 md:py-24 px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-10 sm:mb-14">
+        <p class="section-eyebrow mb-2">Tech Stack</p>
+        <h2 class="section-title">Technical Skills</h2>
       </div>
-    </section>
 
-    <!-- Cutting-Edge Placeholder Section -->
-    <section
-      id="endorsements"
-      class="py-20 bg-gradient-to-br from-blue-50 to-white"
-    >
-      <div class="mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Section Header -->
-        <div class="text-center mb-16">
-          <h2 class="text-4xl font-bold text-gray-800 mb-4">
-            Let's work together
-          </h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
+        <!-- Skills with icons -->
+        <div class="card p-4 text-center group cursor-default">
           <div
-            class="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-300 mx-auto rounded-full"
-          ></div>
-          <p class="mt-6 text-lg text-gray-600 max-w-2xl mx-auto">
-              I'm actively seeking new opportunities to apply my skills and
-              contribute to innovative projects. If you're looking for a
-              dedicated web developer, let's connect and discuss how we can collaborate.
-          </p>
-        </div>
-        <!-- Interactive Cards Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-10">
-          <!-- Card 1 - 3D Tilt Effect -->
-          <div
-            class="endorsement-card group"
-            data-tilt
-            data-tilt-max="8"
-            data-tilt-speed="400"
-          >
-            <div
-              class="absolute inset-0 bg-gradient-to-br from-blue-100 to-white rounded-xl shadow-lg transform group-hover:-translate-y-2 transition-all duration-300"
-            ></div>
-            <!-- <div class="relative z-10 p-8 h-full flex flex-col">
-              <div class="flex items-center mb-6">
-                <div class="relative">
-                  <div
-                    class="absolute inset-0 bg-blue-500 rounded-full opacity-10 blur-md"
-                  ></div>
-                  <img
-                    src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100&q=80"
-                    alt="Colleague"
-                    class="w-14 h-14 rounded-full border-2 border-white shadow-md object-cover"
-                    onerror="this.src='assets/img/people/default-avatar.jpg'"
-                  />
-                </div>
-                <div class="ml-4">
-                  <h4 class="font-bold text-gray-800">Sarah Johnson</h4>
-                  <p class="text-sm text-blue-600">Senior Developer @ RE/MAX</p>
-                </div>
-              </div>
-              <div class="flex-1">
-                <div class="text-blue-500 text-3xl mb-2 opacity-20">“</div>
-                <p class="text-gray-700 mb-6 italic">
-                  Ephraim's ability to bridge technical and non-technical
-                  perspectives makes him invaluable. He transformed our internal
-                  tools with intuitive interfaces that reduced training time by
-                  40%.
-                </p>
-              </div>
-              <div class="flex items-center justify-between">
-                <div class="flex space-x-1 text-yellow-400">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                </div>
-                <span class="text-xs text-gray-500"
-                  >Collaborated for 2+ years</span
-                >
-              </div>
-            </div> -->
+            class="w-10 h-10 mx-auto mb-2 flex items-center justify-center rounded-lg bg-surface group-hover:bg-surface-dark transition-colors">
+            <img class="h-5" src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JavaScript" loading="lazy" />
           </div>
+          <p class="text-xs font-medium">JavaScript</p>
         </div>
-
-        <!-- Animated CTA -->
-        <div class="mt-1 text-center">
-          <a
-            href="#contact"
-            class="inline-flex items-center px-8 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 transform">
-        <span>Lets Talk</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 ml-2 animate-bounce-x"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </a>
+        <div class="card p-4 text-center group cursor-default">
+          <div
+            class="w-10 h-10 mx-auto mb-2 flex items-center justify-center rounded-lg bg-surface group-hover:bg-surface-dark transition-colors">
+            <img class="h-5" src="https://cdn.simpleicons.org/nodedotjs/339933" alt="Node.js" loading="lazy" />
+          </div>
+          <p class="text-xs font-medium">Node.js</p>
+        </div>
+        <div class="card p-4 text-center group cursor-default">
+          <div
+            class="w-10 h-10 mx-auto mb-2 flex items-center justify-center rounded-lg bg-surface group-hover:bg-surface-dark transition-colors">
+            <img class="h-5" src="https://cdn.simpleicons.org/react/61DAFB" alt="React" loading="lazy" />
+          </div>
+          <p class="text-xs font-medium">React</p>
+        </div>
+        <div class="card p-4 text-center group cursor-default">
+          <div
+            class="w-10 h-10 mx-auto mb-2 flex items-center justify-center rounded-lg bg-surface group-hover:bg-surface-dark transition-colors">
+            <img class="h-5" src="https://images.icon-icons.com/3914/PNG/512/playwright_logo_icon_248827.png" alt="Playwright" loading="lazy" />
+          </div>
+          <p class="text-xs font-medium">Playwright</p>
+        </div>
+        <div class="card p-4 text-center group cursor-default">
+          <div
+            class="w-10 h-10 mx-auto mb-2 flex items-center justify-center rounded-lg bg-surface group-hover:bg-surface-dark transition-colors">
+            <img class="h-5" src="https://cdn.simpleicons.org/laravel/FF2D20" alt="Laravel" loading="lazy" />
+          </div>
+          <p class="text-xs font-medium">Laravel</p>
+        </div>
+        <div class="card p-4 text-center group cursor-default">
+          <div
+            class="w-10 h-10 mx-auto mb-2 flex items-center justify-center rounded-lg bg-surface group-hover:bg-surface-dark transition-colors">
+            <img class="h-5" src="https://cdn.simpleicons.org/mysql/4479A1" alt="MySQL" loading="lazy" />
+          </div>
+          <p class="text-xs font-medium">MySQL</p>
+        </div>
+        <div class="card p-4 text-center group cursor-default">
+          <div
+            class="w-10 h-10 mx-auto mb-2 flex items-center justify-center rounded-lg bg-surface group-hover:bg-surface-dark transition-colors">
+            <img class="h-5" src="https://cdn.simpleicons.org/php/777BB4" alt="PHP" loading="lazy" />
+          </div>
+          <p class="text-xs font-medium">PHP</p>
+        </div>
+        <div class="card p-4 text-center group cursor-default">
+          <div
+            class="w-10 h-10 mx-auto mb-2 flex items-center justify-center rounded-lg bg-surface group-hover:bg-surface-dark transition-colors">
+            <img class="h-5" src="https://cdn.simpleicons.org/tailwindcss/06B6D4" alt="Tailwind" loading="lazy" />
+          </div>
+          <p class="text-xs font-medium">Tailwind CSS</p>
+        </div>
+        <div class="card p-4 text-center group cursor-default">
+          <div
+            class="w-10 h-10 mx-auto mb-2 flex items-center justify-center rounded-lg bg-surface group-hover:bg-surface-dark transition-colors">
+            <img class="h-5" src="https://cdn.simpleicons.org/git/F05032" alt="Git" loading="lazy" />
+          </div>
+          <p class="text-xs font-medium">Git</p>
+        </div>
+        <div class="card p-4 text-center group cursor-default">
+          <div
+            class="w-10 h-10 mx-auto mb-2 flex items-center justify-center rounded-lg bg-surface group-hover:bg-surface-dark transition-colors">
+            <img class="h-5" src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker" loading="lazy" />
+          </div>
+          <p class="text-xs font-medium">Docker</p>
         </div>
       </div>
-    </section>
 
-    <!-- Tilt.js for 3D effect -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
-    <script>
-      // Initialize tilt.js
-      $('.endorsement-card[data-tilt]').tilt({
-        glare: true,
-        maxGlare: 0.1,
-        scale: 1.02,
-      });
+      <!-- Additional skill categories -->
+      <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="card p-5">
+          <h4 class="font-semibold text-sm mb-2">Application & Production Support</h4>
+          <p class="text-xs text-muted">Incident triage, RCA, SLA management, escalation handling, user provisioning</p>
+        </div>
+        <div class="card p-5">
+          <h4 class="font-semibold text-sm mb-2">Systems & Remote Tools</h4>
+          <p class="text-xs text-muted">Postman, TeamViewer, AnyDesk, Fortinet VPN, Freshdesk, Jira</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      // Add animated gradient to cards on hover
-      document.querySelectorAll('.endorsement-card').forEach((card) => {
-        card.addEventListener('mousemove', (e) => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          card.style.setProperty('--mouse-x', `${x}px`);
-          card.style.setProperty('--mouse-y', `${y}px`);
-        });
-      });
-    </script>
-
-    <style>
-      /* Custom animations */
-      @keyframes spin {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-        }
-      }
-
-      .endorsement-card {
-        position: relative;
-        transition: all 0.3s ease;
-        transform-style: preserve-3d;
-      }
-
-      .endorsement-card:hover {
-        transform: translateY(-5px);
-      }
-
-      .animate-bounce-x {
-        animation: bounce-x 1s infinite;
-      }
-
-      @keyframes bounce-x {
-        0%,
-        100% {
-          transform: translateX(0);
-        }
-        50% {
-          transform: translateX(5px);
-        }
-      }
-    </style>
-
-    <!-- Contact Section -->
-    <section id="contact" class="relative py-12 md:py-20 overflow-hidden">
-      <!-- Floating tech elements - made smaller for mobile -->
-      <div class="absolute inset-0 overflow-hidden pointer-events-none">
-        <div
-          class="absolute top-1/4 left-1/4 w-6 h-6 md:w-10 md:h-10 rounded-full bg-blue-500 opacity-20 animate-float"
-        ></div>
-        <div
-          class="absolute top-1/3 right-1/4 w-8 h-8 md:w-12 md:h-12 rounded-full bg-blue-400 opacity-25 animate-float-delay"
-        ></div>
-        <div
-          class="absolute bottom-1/4 left-1/3 w-6 h-6 md:w-10 md:h-10 rounded-full bg-blue-300 opacity-15 animate-float"
-        ></div>
+  <!-- ==================== PROJECTS ==================== -->
+  <section id="projects" class="py-16 sm:py-20 md:py-24 px-4 bg-surface">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10 sm:mb-14">
+        <p class="section-eyebrow mb-2">Portfolio</p>
+        <h2 class="section-title">Technical Projects</h2>
       </div>
 
-      <div class="container mx-auto px-4 sm:px-6 relative">
-        <!-- Section Header -->
-        <div class="text-center mb-10 md:mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-            Connect with Me
-          </h2>
-          <div
-            class="w-20 md:w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-300 mx-auto rounded-full"
-          ></div>
-          <p
-            class="mt-4 md:mt-6 text-base md:text-lg text-gray-600 max-w-2xl mx-auto"
-          >
-            Have a project in mind or want to discuss opportunities? Let's talk!
-          </p>
-        </div>
+      <!-- First 3 projects -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
 
-        <!-- Grid container with proper responsive classes -->
-        <div
-          class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 mx-auto max-w-4xl"
-        >
-          <!-- Contact Info Card -->
-          <div
-            class="bg-white rounded-xl md:rounded-2xl shadow-lg md:shadow-xl overflow-hidden transition-all hover:shadow-md md:hover:shadow-2xl hover:-translate-y-1"
-          >
-            <div class="p-6 md:p-8">
-              <h3
-                class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6"
-              >
-                Contact Information
+        <!-- Project 1 -->
+        <div class="project-card group">
+          <div class="project-img-wrap">
+            <img src="assets/img/projects/Beiramar.jpg" alt="Beiramar-Blouberg" loading="lazy" />
+            <a href="assets/img/projects/Beiramar.jpg" class="zoom-btn" title="View larger"
+              aria-label="View larger image">
+              <i class="fas fa-plus"></i>
+            </a>
+          </div>
+          <div class="p-4 sm:p-5">
+            <div class="flex items-start justify-between gap-2 mb-2">
+              <h3 class="font-semibold text-sm sm:text-base">
+                <a href="beiramar-blouberg.html" class="hover:underline">Beiramar-Blouberg</a>
               </h3>
+              <a href="beiramar-blouberg.html"
+                class="text-xs font-medium text-green-500 hover:text-accent whitespace-nowrap">Visit →</a>
+            </div>
+            <p class="text-xs text-muted mb-3 line-clamp-2">Luxury beachfront apartment development website with
+              property showcases.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
+          </div>
+        </div>
 
-              <div class="space-y-4 md:space-y-6">
-                <!-- Email -->
-                <div class="flex items-start">
-                  <div
-                    class="flex-shrink-0 bg-blue-100 p-2 md:p-3 rounded-lg text-blue-600"
-                  >
-                    <i class="fas fa-envelope text-lg md:text-xl"></i>
-                  </div>
-                  <div class="ml-3 md:ml-4">
-                    <h4 class="text-xs md:text-sm font-semibold text-gray-500">
-                      Email
-                    </h4>
-                    <a
-                      href="mailto:info@ephraimdev.site"
-                      class="text-base md:text-lg text-gray-800 hover:text-blue-600 transition-colors"
-                    >
-                      info@ephraimdev.site
-                    </a>
-                  </div>
-                </div>
+        <!-- Project 2 -->
+        <div class="project-card group">
+          <div class="project-img-wrap">
+            <img src="assets/img/projects/Albus-waveside-villa.jpg" alt="Albus Waveside Villa" loading="lazy" />
+            <a href="assets/img/projects/Albus-waveside-villa.jpg" class="zoom-btn" title="View larger"
+              aria-label="View larger image">
+              <i class="fas fa-plus"></i>
+            </a>
+          </div>
+          <div class="p-4 sm:p-5">
+            <div class="flex items-start justify-between gap-2 mb-2">
+              <h3 class="font-semibold text-sm sm:text-base">
+                <a href="https://sunsetbeachalbus.co.za/" class="hover:underline">Albus Waveside Villa</a>
+              </h3>
+                <a href="https://sunsetbeachalbus.co.za/"
+                  class="text-xs font-medium text-green-500 hover:text-accent whitespace-nowrap">Visit →</a>
+            </div>
+            <p class="text-xs text-muted mb-3 line-clamp-2">Premium property website for Sunset Beach's exclusive
+              development.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="tag">HTML</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Tailwind</span>
+            </div>
+          </div>
+        </div>
 
-                <!-- Phone -->
-                <div class="flex items-start">
-                  <div
-                    class="flex-shrink-0 bg-indigo-100 p-2 md:p-3 rounded-lg text-indigo-600"
-                  >
-                    <i class="fas fa-phone text-lg md:text-xl"></i>
-                  </div>
-                  <div class="ml-3 md:ml-4">
-                    <h4 class="text-xs md:text-sm font-semibold text-gray-500">
-                      Phone
-                    </h4>
-                    <a
-                      href="tel:+27618514214"
-                      class="text-base md:text-lg text-gray-800 hover:text-indigo-600 transition-colors"
-                    >
-                      061 851 4214
-                    </a>
-                  </div>
-                </div>
+        <!-- Project 3 -->
+        <div class="project-card group">
+          <div class="project-img-wrap">
+            <img src="assets/img/projects/events-management-app.jpg" alt="Job Management System" loading="lazy" />
+            <a href="assets/img/projects/events-management-app.jpg" class="zoom-btn" title="View larger"
+              aria-label="View larger image">
+              <i class="fas fa-plus"></i>
+            </a>
+          </div>
+          <div class="p-4 sm:p-5">
+            <div class="flex items-start justify-between gap-2 mb-2">
+              <h3 class="font-semibold text-sm sm:text-base">
+                <a href="ems.html" class="hover:underline">Events Management System</a>
+              </h3>
+              <a href="ems.html"
+                class="text-xs font-medium text-green-500 hover:text-accent whitespace-nowrap">Visit →</a>
+            </div>
+            <p class="text-xs text-muted mb-3 line-clamp-2">Full-stack business management system with RBAC and RESTful
+              API.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="tag">React</span>
+              <span class="tag">Laravel</span>
+              <span class="tag">MySQL</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-                <!-- Location -->
-                <div class="flex items-start">
-                  <div
-                    class="flex-shrink-0 bg-purple-100 p-2 md:p-3 rounded-lg text-purple-600"
-                  >
-                    <i class="fas fa-map-marker-alt text-lg md:text-xl"></i>
-                  </div>
-                  <div class="ml-3 md:ml-4">
-                    <h4 class="text-xs md:text-sm font-semibold text-gray-500">
-                      Location
-                    </h4>
-                    <p class="text-base md:text-lg text-gray-800">
-                      Cape Town, South Africa
-                    </p>
-                  </div>
-                </div>
-              </div>
+      <!-- Hidden projects -->
+      <div class="hidden-projects-wrap mt-4 sm:mt-6" id="hiddenProjectsWrap">
+        <div class="hidden-projects-inner">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 pt-2">
 
-              <!-- Social Links - Improved for mobile -->
-              <div class="mt-8 md:mt-10">
-                <h4
-                  class="text-xs md:text-sm font-semibold text-gray-500 mb-3 md:mb-4"
-                >
-                  Follow Me
-                </h4>
-                <div class="flex space-x-3 md:space-x-4">
-                  <a
-                    target="_blank"
-                    href="https://github.com/Ephraim06"
-                    class="social-icon w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-lg bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-600 transition-colors"
-                  >
-                    <i class="fab fa-github text-base md:text-lg"></i>
-                  </a>
-                  <a
-                    target="_blank"
-                    href="https://www.linkedin.com/in/ephraim-s-281742148/"
-                    class="social-icon w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-lg bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-600 transition-colors"
-                  >
-                    <i class="fab fa-linkedin-in text-base md:text-lg"></i>
-                  </a>
-                </div>
-              </div>
-
-              <!-- Download CV Button -->
-              <div class="mt-8 md:mt-10">
-                <a
-                  target="_blank"
-                  href="assets/documents/Ephraim Samanyayi_CV.pdf"
-                  download
-                  class="inline-flex items-center px-4 py-2 md:px-6 md:py-3 border border-transparent text-sm md:text-base font-medium rounded-lg shadow-sm text-white bg-blue-500 hover:bg-blue-600 transition-all transform hover:scale-105">
-                  <i class="fas fa-download mr-2 text-sm md:text-base"></i>
-                  Resume
+            <!-- Project 4 -->
+            <div class="project-card group">
+              <div class="project-img-wrap">
+                <img src="assets/img/projects/happy-cape-tours.png" alt="Happy Cape Tours" loading="lazy" />
+                <a href="assets/img/projects/happy-cape-tours.png" class="zoom-btn" title="View larger"
+                  aria-label="View larger image">
+                  <i class="fas fa-plus"></i>
                 </a>
               </div>
+              <div class="p-4 sm:p-5">
+                <div class="flex items-start justify-between gap-2 mb-2">
+                  <h3 class="font-semibold text-sm sm:text-base">
+                    <a href="https://happycapetours.com" target="_blank" rel="noopener" class="hover:underline">Happy
+                      Cape Tours</a>
+                  </h3>
+                  <a href="https://happycapetours.com" target="_blank" rel="noopener"
+                    class="text-xs font-medium text-green-500 hover:text-accent whitespace-nowrap">Visit →</a>
+                </div>
+                <p class="text-xs text-muted mb-3 line-clamp-2">Tour booking platform with real-time availability &
+                  payment processing.</p>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="tag">React</span>
+                  <span class="tag">Stripe</span>
+                  <span class="tag">MySQL</span>
+                </div>
+              </div>
             </div>
-          </div>
 
-          <!-- Modern Form -->
-          <div
-           class="bg-white rounded-xl md:rounded-lg shadow-lg md:shadow-xl overflow-hidden transition-all hover:shadow-md md:hover:shadow-2xl hover:-translate-y-1">
-            <div class="p-6 md:p-8">
-              <h3
-                class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6"
-              >
-                Send Me a Message
-              </h3>
-              <form
-                action="https://formspree.io/f/mnndqrbr"
-                method="POST"
-                class="space-y-4 md:space-y-6"
-              >
-                <!-- Name Field -->
-                <div>
-                  <label
-                    for="name"
-                    class="block text-xs md:text-sm font-medium text-gray-700 mb-1"
-                    >Name</label
-                  >
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    class="w-full px-3 py-2 md:px-4 md:py-2.5 text-sm md:text-base border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-blue-500 transition-all"
-                    placeholder="Your name"
-                  />
+            <!-- Project 5 -->
+            <div class="project-card group">
+              <div class="project-img-wrap">
+                <img src="assets/img/projects/atbestwecare.png" alt="At Best We Care" loading="lazy" />
+                <a href="assets/img/projects/atbestwecare.png" class="zoom-btn" title="View larger"
+                  aria-label="View larger image">
+                  <i class="fas fa-plus"></i>
+                </a>
+              </div>
+              <div class="p-4 sm:p-5">
+                <div class="flex items-start justify-between gap-2 mb-2">
+                  <h3 class="font-semibold text-sm sm:text-base">
+                    <a href="https://atbestwecareinc.com" target="_blank" rel="noopener" class="hover:underline">At Best
+                      We Care</a>
+                  </h3>
+                  <a href="https://atbestwecareinc.com" target="_blank" rel="noopener"
+                    class="text-xs font-medium text-green-500 hover:text-accent whitespace-nowrap">Visit →</a>
                 </div>
-
-                <!-- Email Field -->
-                <div>
-                  <label
-                    for="email"
-                    class="block text-xs md:text-sm font-medium text-gray-700 mb-1"
-                    >Email</label
-                  >
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    class="w-full px-3 py-2 md:px-4 md:py-2.5 text-sm md:text-base border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-blue-500 transition-all"
-                    placeholder="your.email@example.com"
-                  />
+                <p class="text-xs text-muted mb-3 line-clamp-2">Immigration services platform helping navigate pathways
+                  to Canada.</p>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="tag">React</span>
+                  <span class="tag">Stripe</span>
+                  <span class="tag">Tailwind</span>
                 </div>
-
-                <!-- Subject Field -->
-                <div>
-                  <label
-                    for="subject"
-                    class="block text-xs md:text-sm font-medium text-gray-700 mb-1"
-                    >Subject</label
-                  >
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    required
-                    class="w-full px-3 py-2 md:px-4 md:py-2.5 text-sm md:text-base border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-blue-500 transition-all"
-                    placeholder="What's this about?"
-                  />
-                </div>
-
-                <!-- Message Field -->
-                <div>
-                  <label
-                    for="message"
-                    class="block text-xs md:text-sm font-medium text-gray-700 mb-1"
-                    >Message</label
-                  >
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows="4"
-                    required
-                    class="w-full px-3 py-2 md:px-4 md:py-2.5 text-sm md:text-base border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-blue-500 transition-all"
-                    placeholder="Your message here..."
-                  ></textarea>
-                </div>
-
-                <!-- Submit Button -->
-                <div class="pt-2">
-                  <button
-                    type="submit"
-                    class="w-full flex items-center justify-center px-6 py-2.5 md:px-8 md:py-3 border border-transparent text-sm md:text-base font-medium rounded-lg text-white bg-blue-500 hover:bg-blue-600 transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                    <i class="fas fa-paper-plane mr-2 text-sm md:text-base"></i>
-                    Send Message
-                  </button>
-                </div>
-              </form>
+              </div>
             </div>
+
+            <!-- Project 6 -->
+            <div class="project-card group">
+              <div class="project-img-wrap">
+                <img src="assets/img/projects/tawcon-projects.png" alt="Tawcon Projects" loading="lazy" />
+                <a href="assets/img/projects/tawcon-projects.png" class="zoom-btn" title="View larger"
+                  aria-label="View larger image">
+                  <i class="fas fa-plus"></i>
+                </a>
+              </div>
+              <div class="p-4 sm:p-5">
+                <div class="flex items-start justify-between gap-2 mb-2">
+                  <h3 class="font-semibold text-sm sm:text-base">
+                    <a href="https://tawconprojects.co.za" target="_blank" rel="noopener" class="hover:underline">Tawcon
+                      Projects</a>
+                  </h3>
+                  <a href="https://tawconprojects.co.za" target="_blank" rel="noopener"
+                    class="text-xs font-medium text-green-500 hover:text-accent whitespace-nowrap">Visit →</a>
+                </div>
+                <p class="text-xs text-muted mb-3 line-clamp-2">Professional plumbing services with booking and
+                  portfolio showcase.</p>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="tag">HTML</span>
+                  <span class="tag">Tailwind</span>
+                  <span class="tag">JavaScript</span>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
-    </section>
 
-    <style>
-      /* Animations */
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-10px);
-        }
-      }
-      .animate-float {
-        animation: float 6s ease-in-out infinite;
-      }
-      .animate-float-delay {
-        animation: float 7s ease-in-out infinite 1s;
-      }
+      <!-- View More -->
+      <div class="text-center mt-8 sm:mt-10">
+        <button id="viewMoreBtn" class="btn-view-more" onclick="toggleProjects()" aria-expanded="false">
+          <span id="viewMoreText">View More Projects</span>
+          <i id="viewMoreArrow" class="fas fa-chevron-down arrow-icon text-xs"></i>
+        </button>
+      </div>
+    </div>
+  </section>
 
-      /* Custom styles */
-      .contact-info-card,
-      .contact-form-card {
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-      }
+  <!-- ==================== CONTACT ==================== -->
+  <section id="contact" class="py-16 sm:py-20 md:py-24 px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-10 sm:mb-14">
+        <p class="section-eyebrow mb-2">Get In Touch</p>
+        <h2 class="section-title">Let's Connect</h2>
+      </div>
 
-      .social-icon {
-        @apply w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300;
-      }
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Contact Info -->
+        <div class="card p-6 sm:p-8 space-y-5">
+          <h3 class="font-semibold text-lg">Contact Information</h3>
 
-      .form-input,
-      .form-textarea {
-        @apply block w-full shadow-sm sm:text-sm border-gray-300 rounded-md transition-all duration-200;
-      }
-
-      .form-input:focus,
-      .form-textarea:focus {
-        @apply ring-2 ring-blue-400 border-blue-500;
-      }
-
-      .download-btn,
-      .submit-btn {
-        box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3),
-          0 2px 4px -1px rgba(59, 130, 246, 0.2);
-      }
-
-      .download-btn:hover,
-      .submit-btn:hover {
-        box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.4),
-          0 4px 6px -2px rgba(59, 130, 246, 0.2);
-      }
-    </style>
-    <!-- OUT OF THIS WORLD FOOTER -->
-    <footer class="footer">
-      <!-- Particle background (optional, requires JS) -->
-      <div class="footer-particles" id="footer-particles"></div>
-
-      <div class="footer-content">
-        <!-- Futuristic Logo Section -->
-        <div class="footer-logo">
-          <span>ES</span>
-          <p>Ephraim Samanyayi</p>
-          <div class="footer-social">
-            <a
-              target="_blank"
-              href="https://github.com/Ephraim06"
-              class="social-link"
-              aria-label="GitHub"
-            >
-              <i class="fab fa-github"></i>
-            </a>
-            <a
-              target="_blank"
-              href="https://www.linkedin.com/in/ephraim-s-281742148/"
-              class="social-link"
-              aria-label="LinkedIn"
-            >
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-            <!-- <a href="#" class="social-link" aria-label="Twitter">
-              <i class="fab fa-twitter"></i>
-            </a> -->
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-envelope text-sm"></i>
+            </div>
+            <div class="min-w-0">
+              <p class="text-xs text-muted">Email</p>
+              <a href="mailto:esamanyayi95@gmail.com"
+                class="text-sm font-medium hover:underline break-all">esamanyayi95@gmail.com</a>
+            </div>
           </div>
+
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-phone text-sm"></i>
+            </div>
+            <div>
+              <p class="text-xs text-muted">Phone</p>
+              <a href="tel:+27618514214" class="text-sm font-medium hover:underline">+27 61 851 4214</a>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-location-dot text-sm"></i>
+            </div>
+            <div>
+              <p class="text-xs text-muted">Location</p>
+              <p class="text-sm font-medium">Western Cape, South Africa</p>
+            </div>
+          </div>
+
+          <div class="flex gap-2 pt-2">
+            <a href="https://github.com/Ephraim06" target="_blank" rel="noopener"
+              class="w-9 h-9 rounded-lg bg-surface flex items-center justify-center hover:bg-surface-dark transition-colors"
+              aria-label="GitHub">
+              <i class="fab fa-github text-sm"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/ephraim-s-281742148/" target="_blank" rel="noopener"
+              class="w-9 h-9 rounded-lg bg-surface flex items-center justify-center hover:bg-surface-dark transition-colors"
+              aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in text-sm"></i>
+            </a>
+          </div>
+
+          <a href="assets/documents/Ephraim Samanyayi_CV.pdf" download
+            class="btn-primary w-full justify-center text-sm">
+            <i class="fas fa-download"></i> Download CV
+          </a>
         </div>
 
-        <!-- Explore Links -->
-        <div class="link-group">
-          <h4>Explore</h4>
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="projects.html">Projects</a>
-          <a href="#experience">Experience</a>
-          <a href="#contact">Contact</a>
-        </div>
-
-        <!-- Connect Links -->
-        <div class="link-group">
-          <h4>Connect</h4>
-          <a href="mailto:info@ephraimdev.site">Email</a>
-          <a href="tel:+27618514214">Phone</a>
-          <a href="https://github.com/Ephraim06" target="_blank">GitHub</a>
-          <a
-            href="https://www.linkedin.com/in/ephraim-s-281742148/"
-            target="_blank"
-            >LinkedIn</a
-          >
-        </div>
-
-        <!-- Newsletter Section -->
-        <div class="footer-newsletter">
-          <h4>Get Updates</h4>
-          <p>
-            Subscribe to my newsletter for the latest projects and insights.
-          </p>
-          <form
-            action="https://formspree.io/f/mnndqrbr"
-            method="POST"
-            class="newsletter-form"
-            data-formspree
-          >
-            <input
-              type="email"
-              class="newsletter-input"
-              name="email"
-              placeholder="Your email"
-              required
-            />
-            <button type="submit" class="newsletter-btn">Subscribe</button>
+        <!-- Contact Form -->
+        <div class="card p-6 sm:p-8">
+          <h3 class="font-semibold text-lg mb-5">Send a Message</h3>
+          <form action="https://formspree.io/f/mnndqrbr" method="POST" class="space-y-4">
+            <div>
+              <label for="name" class="block text-xs font-medium text-muted mb-1">Name</label>
+              <input type="text" id="name" name="name" required class="input-field" placeholder="Your name" />
+            </div>
+            <div>
+              <label for="email" class="block text-xs font-medium text-muted mb-1">Email</label>
+              <input type="email" id="email" name="email" required class="input-field" placeholder="you@example.com" />
+            </div>
+            <div>
+              <label for="subject" class="block text-xs font-medium text-muted mb-1">Subject</label>
+              <input type="text" id="subject" name="subject" required class="input-field"
+                placeholder="What's this about?" />
+            </div>
+            <div>
+              <label for="message" class="block text-xs font-medium text-muted mb-1">Message</label>
+              <textarea id="message" name="message" rows="4" required class="input-field"
+                placeholder="Your message..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary w-full justify-center text-sm">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
           </form>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Futuristic Copyright Bar -->
-      <div class="footer-bottom">
-        <p>
-          &copy; <span id="current-year"></span> Ephraim Samanyayi. All rights
-          reserved.
-        </p>
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer py-10 sm:py-12 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 mb-8">
+        <div class="col-span-2 sm:col-span-1">
+          <h3 class="font-bold text-lg mb-1">ES</h3>
+          <p class="text-sm text-gray-400">Ephraim Samanyayi</p>
+          <p class="text-xs text-gray-500 mt-1">Web Developer</p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-sm mb-2">Navigation</h4>
+          <div class="space-y-1.5 text-sm text-gray-400">
+            <a href="#about" class="block hover:text-white transition-colors">About</a>
+            <a href="#experience" class="block hover:text-white transition-colors">Experience</a>
+            <a href="#skills" class="block hover:text-white transition-colors">Skills</a>
+            <a href="#projects" class="block hover:text-white transition-colors">Projects</a>
+            <a href="#contact" class="block hover:text-white transition-colors">Contact</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-semibold text-sm mb-2">Links</h4>
+          <div class="space-y-1.5 text-sm text-gray-400">
+            <a href="https://github.com/Ephraim06" target="_blank" rel="noopener"
+              class="block hover:text-white transition-colors">GitHub</a>
+            <a href="https://www.linkedin.com/in/ephraim-s-281742148/" target="_blank" rel="noopener"
+              class="block hover:text-white transition-colors">LinkedIn</a>
+            <a href="mailto:esamanyayi95@gmail.com" class="block hover:text-white transition-colors">Email</a>
+          </div>
+        </div>
       </div>
-    </footer>
+      <div class="border-t border-gray-800 pt-6 text-center text-xs text-gray-500">
+        <p>&copy; <span id="current-year"></span> Ephraim Samanyayi. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
-    <!-- Font Awesome for icons (add in head) -->
-    <script
-      src="https://kit.fontawesome.com/your-code.js"
-      crossorigin="anonymous"
-    ></script>
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
 
-    <!-- Optional: Simple year script -->
-    <script>
-      document.getElementById('current-year').textContent =
-        new Date().getFullYear();
+    function toggleProjects() {
+      const wrap = document.getElementById('hiddenProjectsWrap');
+      const btn = document.getElementById('viewMoreBtn');
+      const text = document.getElementById('viewMoreText');
+      const arrow = document.getElementById('viewMoreArrow');
+      const isExpanded = wrap.classList.contains('expanded');
 
-      // Optional: If you want to add particle.js later:
-      // particlesJS.load('footer-particles', 'particles-config.json');
-    </script>
+      if (isExpanded) {
+        wrap.classList.remove('expanded');
+        btn.classList.remove('expanded');
+        text.textContent = 'View More Projects';
+        arrow.style.transform = 'rotate(0deg)';
+        btn.setAttribute('aria-expanded', 'false');
+        document.getElementById('projects').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        wrap.classList.add('expanded');
+        btn.classList.add('expanded');
+        text.textContent = 'View Less';
+        arrow.style.transform = 'rotate(180deg)';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    }
 
-    <!-- Back to Top Button -->
-    <a href="#" class="back-to-top" title="Back to Top">
-      <i class="fas fa-arrow-up"></i>
-    </a>
+    // Smooth scroll for dock
+    document.querySelectorAll('.dock-item').forEach(item => {
+      item.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
 
-    <!-- Scripts -->
-    <script src="assets/scripts/script.js"></script>
-    <!-- Bootstrap JS -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-    <!-- Font Awesome -->
-    <script
-      src="https://kit.fontawesome.com/00c02a5085.js"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-      crossorigin="anonymous"
-    ></script>
-  </body>
 </html>

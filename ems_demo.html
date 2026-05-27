@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+  <title>EMS Demo | Ephraim Samanyayi</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W7G61MLMT4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-W7G61MLMT4');
+  </script>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png" />
+  <link rel="manifest" href="/assets/favicon_io/site.webmanifest" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: '#1d1d1f',
+            surface: '#f5f5f7',
+            muted: '#86868b',
+            border: '#e5e5ea',
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --accent: #1d1d1f;
+      --surface: #f5f5f7;
+      --muted: #86868b;
+      --border: #e5e5ea;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #ffffff;
+      color: var(--accent);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      background: var(--surface);
+      color: var(--accent);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: var(--accent);
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      background: #333336;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .video-container {
+      aspect-ratio: 16/9;
+      background: #1d1d1f;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.3s ease;
+      cursor: pointer;
+    }
+
+    .video-overlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .play-btn {
+      width: 64px;
+      height: 64px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      transition: all 0.3s ease;
+    }
+
+    .play-btn:hover {
+      transform: scale(1.1);
+      background: #ffffff;
+    }
+
+    .progress-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      background: var(--accent);
+      transition: width 0.1s linear;
+      max-width: 100%;
+    }
+
+    .control-btn {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: var(--muted);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      font-size: 14px;
+    }
+
+    .control-btn:hover {
+      color: var(--accent);
+      background: var(--surface);
+    }
+
+    @media (max-width: 640px) {
+      .play-btn {
+        width: 52px;
+        height: 52px;
+      }
+      .btn-primary {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+
+    <!-- Back button -->
+    <a href="project_details.html" class="inline-flex items-center text-muted hover:text-accent transition-colors mb-8 sm:mb-10 text-sm font-medium group">
+      <i class="fas fa-arrow-left text-xs mr-2 transition-transform group-hover:-translate-x-1"></i>
+      Back to Project
+    </a>
+
+    <!-- Header -->
+    <div class="text-center mb-10 sm:mb-12">
+      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight mb-3">Events Management System</h1>
+      <p class="text-muted max-w-2xl mx-auto text-sm sm:text-base">
+        Watch the demo below to see how the app works. This video showcases the Event Management System (EMS) I've been building — an event management app to plan, assign, and track tasks effortlessly.
+      </p>
+    </div>
+
+    <!-- Video Player -->
+    <div class="mb-10">
+      <div class="video-container" id="videoContainer">
+        <video class="w-full h-full" id="videoPlayer" preload="metadata">
+          <source src="assets/video/projects/ems-demo.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        <!-- Play overlay -->
+        <div class="video-overlay" id="videoOverlay">
+          <button class="play-btn" id="playButton" aria-label="Play video">
+            <i class="fas fa-play text-xl ml-1"></i>
+          </button>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="progress-bar" id="progressBar" style="width: 0%;"></div>
+      </div>
+
+      <!-- Controls -->
+      <div class="flex items-center justify-between px-2 mt-3">
+        <span class="text-xs text-muted font-mono" id="currentTime">0:00</span>
+        <div class="flex items-center gap-1">
+          <button class="control-btn" id="rewindButton" aria-label="Rewind 10 seconds">
+            <i class="fas fa-backward"></i>
+          </button>
+          <button class="control-btn !w-40 !h-40 !rounded-full" id="playPauseButton" aria-label="Play/Pause">
+            <i class="fas fa-play text-base" id="playPauseIcon"></i>
+          </button>
+          <button class="control-btn" id="forwardButton" aria-label="Forward 10 seconds">
+            <i class="fas fa-forward"></i>
+          </button>
+        </div>
+        <span class="text-xs text-muted font-mono" id="duration">0:00</span>
+      </div>
+    </div>
+
+    <!-- Technologies Used -->
+    <div class="card p-6 sm:p-8 mb-10">
+      <h3 class="font-semibold text-sm uppercase tracking-wider text-muted mb-4">Technologies Used</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-muted">
+        <div class="flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>
+          <span><strong>Laravel (PHP)</strong> – Backend framework</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>
+          <span><strong>React</strong> – Frontend JavaScript library</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>
+          <span><strong>Inertia.js</strong> – Bridges Laravel with React</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>
+          <span><strong>Tailwind CSS</strong> – Utility-first styling</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>
+          <span><strong>MySQL</strong> – Relational database</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>
+          <span><strong>@dnd-kit</strong> – Drag-and-drop Kanban board</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>
+          <span><strong>Vite</strong> – Build tool</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>
+          <span><strong>Axios</strong> – HTTP requests</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resources -->
+    <div class="card p-6 sm:p-8 mb-10">
+      <h3 class="font-semibold text-sm uppercase tracking-wider text-muted mb-4">Resources</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="p-4 rounded-xl bg-surface">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-white flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-external-link-alt text-sm"></i>
+            </div>
+            <div>
+              <p class="text-sm font-medium">Live Demo</p>
+              <p class="text-xs text-muted">Coming Soon</p>
+            </div>
+          </div>
+        </div>
+        <a href="https://github.com/Ephraim06/events_management_system" target="_blank" rel="noopener" class="p-4 rounded-xl bg-surface hover:bg-surface-dark transition-colors group">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-white flex items-center justify-center flex-shrink-0">
+              <i class="fab fa-github text-sm"></i>
+            </div>
+            <div>
+              <p class="text-sm font-medium group-hover:text-accent">GitHub Repository</p>
+              <p class="text-xs text-muted">View source code</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <a href="index.html#contact" class="btn-primary">
+        <i class="fas fa-paper-plane text-sm"></i> Discuss a Similar Project
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-accent text-white mt-16 py-8 px-4">
+    <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-sm text-gray-400">&copy; <span id="current-year"></span> Ephraim Samanyayi. All rights reserved.</p>
+      <div class="flex gap-3">
+        <a href="https://github.com/Ephraim06" target="_blank" rel="noopener" class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors text-sm"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/ephraim-s-281742148/" target="_blank" rel="noopener" class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors text-sm"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Video player logic
+    const video = document.getElementById('videoPlayer');
+    const overlay = document.getElementById('videoOverlay');
+    const playBtn = document.getElementById('playButton');
+    const playPauseBtn = document.getElementById('playPauseButton');
+    const playPauseIcon = document.getElementById('playPauseIcon');
+    const progressBar = document.getElementById('progressBar');
+    const currentTimeEl = document.getElementById('currentTime');
+    const durationEl = document.getElementById('duration');
+    const rewindBtn = document.getElementById('rewindButton');
+    const forwardBtn = document.getElementById('forwardButton');
+
+    function formatTime(s) {
+      const m = Math.floor(s / 60);
+      const sec = Math.floor(s % 60);
+      return `${m}:${sec < 10 ? '0' : ''}${sec}`;
+    }
+
+    function updateUI() {
+      const pct = (video.currentTime / video.duration) * 100;
+      progressBar.style.width = `${pct}%`;
+      currentTimeEl.textContent = formatTime(video.currentTime);
+    }
+
+    function togglePlay() {
+      if (video.paused) {
+        video.play();
+        overlay.classList.add('hidden');
+        playPauseIcon.className = 'fas fa-pause text-base';
+      } else {
+        video.pause();
+        overlay.classList.remove('hidden');
+        playPauseIcon.className = 'fas fa-play text-base';
+      }
+    }
+
+    video.addEventListener('loadedmetadata', () => {
+      durationEl.textContent = formatTime(video.duration);
+    });
+
+    video.addEventListener('timeupdate', updateUI);
+    video.addEventListener('ended', () => {
+      overlay.classList.remove('hidden');
+      playPauseIcon.className = 'fas fa-play text-base';
+      progressBar.style.width = '0%';
+    });
+
+    overlay.addEventListener('click', togglePlay);
+    playBtn.addEventListener('click', (e) => { e.stopPropagation(); togglePlay(); });
+    playPauseBtn.addEventListener('click', togglePlay);
+    rewindBtn.addEventListener('click', () => { video.currentTime = Math.max(0, video.currentTime - 10); });
+    forwardBtn.addEventListener('click', () => { video.currentTime = Math.min(video.duration, video.currentTime + 10); });
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown', (e) => {
+      if (e.code === 'Space') { e.preventDefault(); togglePlay(); }
+      if (e.code === 'ArrowLeft') { video.currentTime = Math.max(0, video.currentTime - 10); }
+      if (e.code === 'ArrowRight') { video.currentTime = Math.min(video.duration, video.currentTime + 10); }
+    });
+  </script>
+</body>
+</html>
